@@ -37,15 +37,14 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="dns-prefetch" href="https://vk.com">
-<link rel="dns-prefetch" href="https://t.me">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Geologica:wght@300;400;500;600&family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@700&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Geologica:wght@300;400;500;600&family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
 
 <style>
-:root{--bg:#0c0c0e;--bg2:#111115;--bg3:#17171c;--line:rgba(255,255,255,0.07);--line2:rgba(255,255,255,0.13);--acc:#ff5f1f;--acc2:#ff8c55;--white:#f0ede8;--muted:#7a7875;--muted2:#4e4c4a;--f-head:'Bebas Neue',sans-serif;--f-body:'Geologica',sans-serif;--glow1:rgba(255,95,31,0.09);--glow2:rgba(255,95,31,0.04)}
+:root{--bg:#07080e;--bg2:#0b0c17;--bg3:#10121d;--line:rgba(255,255,255,0.06);--line2:rgba(255,255,255,0.11);--acc:#5b5ef7;--acc2:#818cf8;--white:#eef0f8;--muted:#64748b;--muted2:#2d3748;--f-head:'Bebas Neue',sans-serif;--f-body:'Geologica',sans-serif;--glow1:rgba(91,94,247,0.14);--glow2:rgba(91,94,247,0.05)}
 [data-theme="neon"]{--bg:#050510;--bg2:#08080f;--bg3:#0d0d18;--line:rgba(0,255,200,0.08);--line2:rgba(0,255,200,0.15);--acc:#00ffc8;--acc2:#44ffda;--white:#e0fff8;--muted:#4a7a70;--muted2:#2a4a44;--f-head:'JetBrains Mono',monospace;--f-body:'JetBrains Mono',monospace;--glow1:rgba(0,255,200,0.07);--glow2:rgba(0,255,200,0.03)}
 [data-theme="neon"] .acc-text{color:#00ffc8!important}
-[data-theme="light"]{--bg:#f5f3ef;--bg2:#eeece8;--bg3:#e8e6e2;--line:rgba(0,0,0,0.08);--line2:rgba(0,0,0,0.15);--acc:#c94a00;--acc2:#e55f00;--white:#1a1816;--muted:#7a7570;--muted2:#a09890;--glow1:rgba(201,74,0,0.07);--glow2:rgba(201,74,0,0.03)}
+[data-theme="light"]{--bg:#f8fafc;--bg2:#f1f5f9;--bg3:#e2e8f0;--line:rgba(0,0,0,0.07);--line2:rgba(0,0,0,0.13);--acc:#4338ca;--acc2:#6366f1;--white:#0f172a;--muted:#64748b;--muted2:#94a3b8;--glow1:rgba(67,56,202,0.07);--glow2:rgba(67,56,202,0.03)}
 [data-theme="mono"]{--bg:#111;--bg2:#161616;--bg3:#1c1c1c;--line:rgba(255,255,255,0.06);--line2:rgba(255,255,255,0.12);--acc:#fff;--acc2:#ccc;--white:#f0f0f0;--muted:#666;--muted2:#444;--f-head:'Montserrat',sans-serif;--f-body:'Montserrat',sans-serif;--glow1:rgba(255,255,255,0.04);--glow2:rgba(255,255,255,0.02)}
 [data-theme="luxury"]{--bg:#0a0806;--bg2:#100e0a;--bg3:#161410;--line:rgba(212,175,55,0.1);--line2:rgba(212,175,55,0.2);--acc:#d4af37;--acc2:#e8c84a;--white:#f5f0e8;--muted:#8a7a60;--muted2:#5a4a30;--f-head:'Playfair Display',serif;--f-body:'Geologica',sans-serif;--glow1:rgba(212,175,55,0.07);--glow2:rgba(212,175,55,0.03)}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -86,9 +85,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:58px;display:flex;jus
 .mobile-menu a:last-child{border-bottom:none;margin-top:8px;color:#0077ff}
 
 /* HERO */
-.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(80px,10vw,140px) clamp(16px,5vw,72px) clamp(52px,7vw,90px);position:relative;overflow:hidden}
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 380px;align-items:end;gap:40px;padding:clamp(80px,10vw,140px) clamp(16px,5vw,72px) clamp(52px,7vw,90px);position:relative;overflow:hidden}
+.hero-content{display:flex;flex-direction:column;justify-content:flex-end}
 .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 70% 40%,var(--glow1) 0%,transparent 70%),radial-gradient(ellipse 40% 60% at 10% 80%,var(--glow2) 0%,transparent 60%);transition:background .5s}
 .hero-grid{position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:80px 80px;mask-image:radial-gradient(ellipse 90% 70% at 50% 50%,black,transparent);-webkit-mask-image:radial-gradient(ellipse 90% 70% at 50% 50%,black,transparent)}
+.hero-photo-bg{position:absolute;top:0;right:0;width:55%;height:100%;z-index:0;overflow:hidden}
+.hero-photo-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,var(--bg) 0%,transparent 40%),linear-gradient(to top,var(--bg) 0%,transparent 30%)}
+.hero-photo-bg img{width:100%;height:100%;object-fit:cover;object-position:center;opacity:.22;filter:saturate(0.7) brightness(0.7)}
+@media(max-width:900px){.hero-photo-bg{width:100%;opacity:.5}}
 .hero-label{font-size:11px;font-weight:500;letter-spacing:3px;color:var(--acc);text-transform:uppercase;margin-bottom:18px;opacity:0;animation:up .7s ease .1s forwards}
 .hero-title{font-family:var(--f-head);font-size:clamp(52px,12vw,160px);line-height:.88;letter-spacing:-.5px;margin-bottom:28px;opacity:0;animation:up .8s ease .25s forwards}
 .hero-title em{font-style:normal;display:block;color:transparent;-webkit-text-stroke:1.5px var(--acc)}
@@ -107,8 +111,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:58px;display:flex;jus
 
 /* SECTIONS */
 section{padding:clamp(52px,7vw,110px) clamp(16px,5vw,72px);position:relative;z-index:1}
-.sec-tag{font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--acc);margin-bottom:10px}
+.sec-tag{display:inline-flex;align-items:center;gap:8px;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--acc);margin-bottom:12px;padding:4px 12px;border:1px solid rgba(91,94,247,.25);background:rgba(91,94,247,.06)}
 .sec-title{font-family:var(--f-head);font-size:clamp(36px,5.5vw,68px);line-height:.95;margin-bottom:48px}
+.sec-title span.acc-text{color:var(--acc)}
 
 /* HOW */
 .how{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
@@ -117,8 +122,8 @@ section{padding:clamp(52px,7vw,110px) clamp(16px,5vw,72px);position:relative;z-i
 .how-step:last-child{border-right:none}
 .how-step:hover{background:var(--bg3)}
 .how-num{font-family:var(--f-head);font-size:72px;line-height:1;color:var(--line2);position:absolute;top:20px;right:24px;pointer-events:none;transition:color .25s}
-.how-step:hover .how-num{color:rgba(255,95,31,.15)}
-.how-ico{width:44px;height:44px;background:rgba(255,95,31,.08);border:1px solid rgba(255,95,31,.2);display:flex;align-items:center;justify-content:center;margin-bottom:20px}
+.how-step:hover .how-num{color:rgba(91,94,247,.15)}
+.how-ico{width:44px;height:44px;background:rgba(91,94,247,.08);border:1px solid rgba(91,94,247,.2);display:flex;align-items:center;justify-content:center;margin-bottom:20px}
 .how-ico svg{width:20px;height:20px;stroke:var(--acc);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
 .how-name{font-family:var(--f-head);font-size:22px;letter-spacing:.5px;margin-bottom:10px}
 .how-desc{font-size:13px;color:var(--muted);line-height:1.7}
@@ -139,42 +144,7 @@ section{padding:clamp(52px,7vw,110px) clamp(16px,5vw,72px);position:relative;z-i
 .pf-filter{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:36px}
 .pf-btn{font-size:12px;font-weight:500;letter-spacing:.8px;padding:0 16px;min-height:44px;display:flex;align-items:center;border:1px solid var(--line2);color:var(--muted);background:none;cursor:pointer;transition:all .2s;font-family:var(--f-body);-webkit-tap-highlight-color:transparent}
 .pf-btn:hover,.pf-btn.active{border-color:var(--acc);color:var(--acc)}
-.port-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:2px}
-.port-card{position:relative;overflow:hidden;aspect-ratio:4/3;background:var(--bg3);cursor:pointer}
-.port-card:hover .port-overlay{opacity:1}
-.port-visual{width:100%;height:100%;display:flex;align-items:center;justify-content:center}
-.port-overlay{position:absolute;inset:0;background:rgba(8,8,12,.9);display:flex;flex-direction:column;justify-content:flex-end;padding:22px;opacity:0;transition:opacity .3s}
-.po-num{font-family:var(--f-head);font-size:13px;letter-spacing:2px;color:var(--acc);margin-bottom:4px}
-.po-name{font-family:var(--f-head);font-size:22px;margin-bottom:6px}
-.po-desc{font-size:13px;color:var(--muted);line-height:1.5}
-.port-label{position:absolute;bottom:0;left:0;right:0;padding:8px 14px;background:linear-gradient(transparent,rgba(8,8,12,.92));display:flex;justify-content:space-between;align-items:flex-end}
-.pl-num{font-family:var(--f-head);font-size:13px;color:var(--acc);letter-spacing:1px}
-.pl-name{font-family:var(--f-head);font-size:17px}
-
-/* BUILDS */
-.builds{background:var(--bg2);border-top:1px solid var(--line)}
-.builds-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:2px}
-.build-card{background:var(--bg3);border:1px solid var(--line);padding:26px 26px 30px;display:flex;flex-direction:column;position:relative;overflow:hidden;transition:border-color .25s,transform .2s}
-.build-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--acc);transform:scaleX(0);transform-origin:left;transition:transform .35s}
-.build-card:hover{border-color:var(--line2);transform:translateY(-3px)}
-.build-card:hover::before{transform:scaleX(1)}
-.build-card.feat{border-color:var(--acc);background:linear-gradient(155deg,rgba(255,95,31,.06),var(--bg3))}
-.build-card.feat::before{transform:scaleX(1)}
-.feat-badge{position:absolute;top:14px;right:14px;font-size:10px;font-weight:600;letter-spacing:1.5px;color:var(--bg);background:var(--acc);padding:3px 10px}
-.build-num{font-size:11px;letter-spacing:2px;color:var(--acc);margin-bottom:12px;font-weight:500}
-.build-name{font-family:var(--f-head);font-size:28px;letter-spacing:.5px;line-height:1;margin-bottom:6px}
-.build-sub{font-size:13px;color:var(--muted);margin-bottom:22px}
-.specs{display:flex;flex-direction:column;gap:7px;flex:1;margin-bottom:22px}
-.s-row{display:flex;justify-content:space-between;font-size:13px}
-.s-k{color:var(--muted2)}
-.s-v{color:var(--white);font-weight:500;text-align:right;max-width:60%}
-.b-div{height:1px;background:var(--line);margin-bottom:18px}
-.b-price{display:flex;align-items:baseline;gap:6px;margin-bottom:16px}
-.p-n{font-family:var(--f-head);font-size:36px;color:var(--white);line-height:1}
-.p-sub{font-size:12px;color:var(--muted)}
-.b-btn{display:flex;align-items:center;justify-content:center;min-height:44px;padding:12px;background:#0077ff;border:none;color:#fff;font-size:13px;font-weight:600;text-decoration:none;letter-spacing:.3px;transition:background .2s,transform .15s;-webkit-tap-highlight-color:transparent}
-.b-btn:hover{background:#005fcc;transform:translateY(-1px)}
-.b-src{font-size:11px;color:var(--muted2);text-align:center;margin-top:8px;letter-spacing:.5px}
+/* port-grid override handled by new .port-grid below */
 
 /* REVIEWS */
 .rev-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
@@ -187,28 +157,26 @@ section{padding:clamp(52px,7vw,110px) clamp(16px,5vw,72px);position:relative;z-i
 .rev-author{font-size:14px;font-weight:500}
 .rev-meta{font-size:12px;color:var(--muted);margin-top:2px}
 .rev-src{font-size:11px;color:var(--muted2);letter-spacing:1px;text-transform:uppercase}
-.rev-q{position:absolute;top:16px;right:20px;font-family:var(--f-head);font-size:64px;line-height:1;color:rgba(255,95,31,.07);pointer-events:none}
+.rev-q{position:absolute;top:16px;right:20px;font-family:var(--f-head);font-size:64px;line-height:1;color:rgba(91,94,247,.07);pointer-events:none}
 
 /* CTA */
 .cta{background:var(--bg2);border-top:1px solid var(--line);text-align:center;padding:clamp(72px,9vw,130px) clamp(16px,5vw,72px);position:relative;overflow:hidden}
-.cta-bg{position:absolute;inset:0;background:radial-gradient(ellipse 50% 60% at 50% 50%,var(--glow1) 0%,transparent 70%);pointer-events:none}
-.cta-title{font-family:var(--f-head);font-size:clamp(44px,7.5vw,94px);line-height:.92;margin-bottom:20px}
-.cta-title em{font-style:normal;color:var(--acc)}
-.cta-sub{font-size:15px;color:var(--muted);margin-bottom:40px;font-weight:300;max-width:480px;margin-left:auto;margin-right:auto}
-.services-tags{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:40px}
+.cta-bg{position:absolute;inset:0;background:radial-gradient(ellipse 40% 60% at 20% 50%,var(--glow1) 0%,transparent 70%);pointer-events:none}
 .s-tag{font-size:12px;font-weight:500;padding:6px 14px;border:1px solid var(--line2);color:var(--muted);letter-spacing:.5px}
-.social-row{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:48px;padding-top:40px;border-top:1px solid var(--line)}
-.soc-link{display:flex;align-items:center;gap:9px;padding:0 20px;min-height:44px;border:1px solid var(--line2);text-decoration:none;color:var(--muted);font-size:13px;font-weight:500;transition:all .2s;letter-spacing:.3px;-webkit-tap-highlight-color:transparent}
-.soc-link:hover{border-color:var(--acc);color:var(--white);background:rgba(255,95,31,.05)}
-.soc-link svg{width:17px;height:17px;flex-shrink:0}
-.soc-link.vk-main{background:rgba(0,119,255,.08);border-color:rgba(0,119,255,.3);color:#5ba3ff}
-.soc-link.vk-main:hover{background:rgba(0,119,255,.18);border-color:#0077ff;color:#fff}
 
 /* FOOTER */
 footer{padding:22px clamp(16px,5vw,72px);padding-left:max(clamp(16px,5vw,72px),env(safe-area-inset-left));padding-right:max(clamp(16px,5vw,72px),env(safe-area-inset-right));border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
 .foot-logo{font-family:var(--f-head);font-size:18px;letter-spacing:2px}
 .foot-logo span{color:var(--acc)}
 .foot-copy{font-size:12px;color:var(--muted2)}
+.foot-left{display:flex;align-items:center;gap:32px;flex-wrap:wrap}
+.foot-nav{display:flex;gap:20px;flex-wrap:wrap}
+.foot-nav a{font-size:13px;color:var(--muted2);text-decoration:none;transition:color .2s}
+.foot-nav a:hover{color:var(--white)}
+.foot-right{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.foot-vk{display:inline-flex;align-items:center;gap:7px;font-size:13px;color:var(--muted2);text-decoration:none;border:1px solid var(--line);border-radius:8px;padding:6px 12px;transition:color .2s,border-color .2s}
+.foot-vk:hover{color:#4a7cdc;border-color:#4a7cdc}
+.foot-vk svg{flex-shrink:0}
 
 @keyframes up{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
 
@@ -225,7 +193,6 @@ footer{padding:22px clamp(16px,5vw,72px);padding-left:max(clamp(16px,5vw,72px),e
   .hero-title{font-size:clamp(44px,14vw,80px)}
   .srv-grid{grid-template-columns:1fr 1fr}
   .port-grid{grid-template-columns:1fr 1fr}
-  .builds-grid{grid-template-columns:1fr}
   .rev-grid{grid-template-columns:1fr}
   .social-row{gap:8px}
   .soc-link{padding:0 14px;font-size:12px}
@@ -248,16 +215,232 @@ footer{padding:22px clamp(16px,5vw,72px);padding-left:max(clamp(16px,5vw,72px),e
   .how-step{padding:24px 20px}
   .srv{padding:24px 18px}
 }
+
+/* SCROLL REVEAL */
+[data-reveal]{opacity:0;transform:translateY(32px);transition:opacity .65s cubic-bezier(.22,1,.36,1),transform .65s cubic-bezier(.22,1,.36,1)}
+[data-reveal].visible{opacity:1;transform:none}
+[data-reveal][data-d="1"]{transition-delay:.08s}
+[data-reveal][data-d="2"]{transition-delay:.16s}
+[data-reveal][data-d="3"]{transition-delay:.24s}
+[data-reveal][data-d="4"]{transition-delay:.32s}
+[data-reveal][data-d="5"]{transition-delay:.4s}
+[data-reveal][data-d="6"]{transition-delay:.48s}
+
+/* NAV SCROLL */
+nav.scrolled{box-shadow:0 2px 24px rgba(0,0,0,.5)}
+
+/* SUPPLIERS */
+.suppliers-strip{display:flex;align-items:center;gap:10px;margin-top:30px;flex-wrap:wrap;opacity:0;animation:up .8s ease .85s forwards}
+.sup-label{font-size:11px;color:var(--muted2);letter-spacing:1.5px;text-transform:uppercase;margin-right:2px}
+.sup-badge{font-size:11px;font-weight:600;padding:5px 12px;border:1px solid var(--line2);color:var(--muted);letter-spacing:.5px;transition:border-color .2s,color .2s;cursor:default}
+.sup-badge:hover{border-color:var(--acc);color:var(--white)}
+
+/* WHY US */
+.why{background:var(--bg);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));border:1px solid var(--line)}
+.why-item{padding:30px 26px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);transition:background .25s;position:relative;overflow:hidden}
+.why-item:hover{background:var(--bg3)}
+.why-ico{width:44px;height:44px;margin-bottom:18px;display:flex;align-items:center;justify-content:center;background:rgba(91,94,247,.07);border:1px solid rgba(91,94,247,.18)}
+.why-ico svg{width:20px;height:20px;stroke:var(--acc);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.why-title{font-family:var(--f-head);font-size:20px;letter-spacing:.5px;margin-bottom:8px}
+.why-desc{font-size:13px;color:var(--muted);line-height:1.7}
+.why-num{position:absolute;bottom:10px;right:16px;font-family:var(--f-head);font-size:56px;line-height:1;color:var(--line2);pointer-events:none;transition:color .25s}
+.why-item:hover .why-num{color:rgba(91,94,247,.1)}
+@media(max-width:800px){.why-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.why-grid{grid-template-columns:1fr}}
+
+
+/* COUNTER */
+.hero-stat-n[data-count]{min-width:2ch}
+
+/* FLOATING VK PULSE */
+@keyframes pulse-ring{0%{box-shadow:0 0 0 0 rgba(0,119,255,.4)}70%{box-shadow:0 0 0 10px rgba(0,119,255,0)}100%{box-shadow:0 0 0 0 rgba(0,119,255,0)}}
+.vk-float{animation:pulse-ring 2.5s ease 3s 3}
+
+/* PROGRESS BAR */
+#progress{position:fixed;top:0;left:0;height:2px;background:var(--acc);z-index:9999;width:0%;transition:width .1s linear;pointer-events:none}
+
+/* TICKER */
+.ticker{overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg2);padding:12px 0}
+.ticker-track{display:flex;white-space:nowrap;animation:ticker 28s linear infinite}
+.ticker-track:hover{animation-play-state:paused}
+.tick-item{display:inline-flex;align-items:center;gap:20px;padding:0 20px;font-size:11px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--muted)}
+.tick-dot{display:inline-block;width:4px;height:4px;background:var(--acc);border-radius:50%;flex-shrink:0}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* STATS BAR */
+.stats-bar{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:0}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.stat-item{padding:clamp(28px,4vw,52px) clamp(16px,3vw,40px);border-right:1px solid var(--line);text-align:center;transition:background .25s}
+.stat-item:last-child{border-right:none}
+.stat-item:hover{background:var(--bg3)}
+.stat-n{font-family:var(--f-head);font-size:clamp(48px,6vw,80px);color:var(--acc);line-height:1;margin-bottom:8px}
+.stat-l{font-size:12px;color:var(--muted);letter-spacing:.8px;line-height:1.5}
+@media(max-width:800px){.stats-grid{grid-template-columns:repeat(2,1fr)}.stat-item:nth-child(2){border-right:none}.stat-item:nth-child(3){border-top:1px solid var(--line)}.stat-item:nth-child(4){border-top:1px solid var(--line);border-right:none}}
+@media(max-width:480px){.stats-grid{grid-template-columns:1fr 1fr}}
+
+/* PORTFOLIO */
+.port-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.pf-card{background:var(--bg3);border:1px solid var(--line);overflow:hidden;transition:border-color .3s,transform .3s,box-shadow .3s}
+.pf-card:hover{border-color:var(--line2);transform:translateY(-5px);box-shadow:0 16px 48px rgba(0,0,0,.5)}
+/* Photo gallery */
+.pf-gallery{position:relative;height:260px;overflow:hidden;background:#000;cursor:zoom-in}
+.pf-slides{position:absolute;inset:0}
+.pf-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .45s ease,transform 6s ease}
+.pf-img.active{opacity:1}
+.pf-card:hover .pf-img.active{transform:scale(1.04)}
+.pf-arr{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.5);border:1px solid rgba(255,255,255,.1);color:#fff;font-size:20px;line-height:1;width:38px;height:38px;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:3;backdrop-filter:blur(6px);border-radius:3px;opacity:0;transition:opacity .2s,background .2s;font-family:sans-serif}
+.pf-gallery:hover .pf-arr{opacity:1}
+.pf-arr:hover{background:rgba(0,0,0,.85)}
+.pf-arr-l{left:10px}
+.pf-arr-r{right:10px}
+.pf-dots{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);display:flex;gap:5px;z-index:2}
+.pf-dot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.35);cursor:pointer;transition:all .25s;border:none;padding:0;flex-shrink:0}
+.pf-dot.active{background:#fff;width:18px;border-radius:3px}
+.pf-badge{position:absolute;top:12px;left:14px;font-family:var(--f-head);font-size:11px;letter-spacing:2.5px;color:rgba(255,255,255,.6);z-index:2;text-shadow:0 1px 6px rgba(0,0,0,.8)}
+.pf-photo-count{position:absolute;top:12px;right:14px;font-size:10px;color:rgba(255,255,255,.6);z-index:2;background:rgba(0,0,0,.45);padding:3px 8px;backdrop-filter:blur(4px);letter-spacing:.5px}
+/* Info row */
+.pf-info{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-top:1px solid var(--line);gap:12px}
+.pf-name{font-family:var(--f-head);font-size:22px;letter-spacing:.3px;line-height:1}
+.pf-cat{font-size:11px;color:var(--muted);margin-top:4px;letter-spacing:.3px}
+.pf-btn-order{flex-shrink:0;font-size:11px;font-weight:600;letter-spacing:.8px;padding:9px 18px;border:1px solid var(--line2);color:var(--muted);text-decoration:none;text-transform:uppercase;transition:all .2s;white-space:nowrap}
+.pf-card:hover .pf-btn-order{border-color:var(--acc);color:var(--acc)}
+@media(max-width:1100px){.port-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:540px){.port-grid{grid-template-columns:1fr}.pf-gallery{height:220px}}
+
+/* FAQ */
+.faq-section{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.faq-list{border:1px solid var(--line);margin-top:0}
+details.faq-item{border-bottom:1px solid var(--line)}
+details.faq-item:last-child{border-bottom:none}
+details.faq-item summary{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:20px 26px;cursor:pointer;list-style:none;
+  font-size:15px;font-weight:500;line-height:1.4;
+  transition:color .2s,background .2s;gap:16px;
+  -webkit-tap-highlight-color:transparent;
+}
+details.faq-item summary::-webkit-details-marker{display:none}
+details.faq-item summary::after{
+  content:'+';flex-shrink:0;width:28px;height:28px;
+  border:1px solid var(--line2);
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;font-weight:300;color:var(--acc);
+  transition:transform .3s,border-color .2s;
+  text-align:center;line-height:28px;
+}
+details.faq-item[open] summary::after{transform:rotate(45deg);border-color:var(--acc)}
+details.faq-item summary:hover{color:var(--acc);background:var(--bg3)}
+details.faq-item[open] summary{color:var(--white);background:var(--bg3)}
+.faq-body{
+  padding:0 26px 22px;font-size:14px;color:var(--muted);line-height:1.8;
+  border-top:1px solid var(--line);background:var(--bg3);
+}
+.faq-body strong{color:var(--white);font-weight:600}
+.faq-body a{color:var(--acc);text-decoration:underline;text-underline-offset:3px}
+@media(max-width:480px){
+  details.faq-item summary{padding:16px 18px;font-size:14px}
+  .faq-body{padding:0 18px 18px;font-size:13px}
+}
+
+/* CTA + FORM */
+.cta{background:var(--bg2);border-top:1px solid var(--line);padding:clamp(56px,7vw,100px) clamp(16px,5vw,72px);position:relative;overflow:hidden}
+.cta-bg{position:absolute;inset:0;background:radial-gradient(ellipse 40% 60% at 20% 50%,var(--glow1) 0%,transparent 70%);pointer-events:none}
+.cta-inner{display:grid;grid-template-columns:1fr 440px;gap:60px;align-items:start;position:relative}
+.cta-left{}
+.cta-title{font-family:var(--f-head);font-size:clamp(48px,7vw,90px);line-height:.9;margin-bottom:18px}
+.cta-title em{font-style:normal;color:var(--acc)}
+.cta-desc{font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:28px;max-width:400px}
+.cta-tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:32px}
+.cta-vk-btn{font-size:14px;padding:0 28px;min-height:48px}
+/* Form card */
+.form-card{background:var(--bg3);border:1px solid var(--line2);padding:28px;position:relative}
+.form-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#0077ff,transparent)}
+.form-head{margin-bottom:22px}
+.form-title{font-family:var(--f-head);font-size:26px;letter-spacing:.5px;margin-bottom:4px}
+.form-sub{font-size:12px;color:var(--muted)}
+.form-group{margin-bottom:14px}
+.form-group label{display:block;font-size:10px;font-weight:700;letter-spacing:1.5px;color:var(--muted);text-transform:uppercase;margin-bottom:7px}
+.form-group input,.form-group select,.form-group textarea{
+  width:100%;background:var(--bg4);border:1px solid var(--line2);color:var(--white);
+  font-family:var(--f-body);font-size:14px;padding:10px 13px;
+  outline:none;transition:border-color .2s;-webkit-appearance:none;
+}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:#0077ff}
+.form-group input::placeholder,.form-group textarea::placeholder{color:var(--muted2)}
+.form-group textarea{resize:vertical;min-height:76px}
+.form-group select{cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%234e4c4a'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center}
+.form-group select option{background:var(--bg3)}
+.form-submit{
+  width:100%;height:48px;background:#0077ff;color:#fff;border:none;
+  font-size:14px;font-weight:600;font-family:var(--f-body);letter-spacing:.3px;
+  cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;
+  transition:background .2s;margin-top:4px;-webkit-tap-highlight-color:transparent;
+}
+.form-submit:hover{background:#005fcc}
+.form-note{font-size:11px;color:var(--muted2);text-align:center;margin-top:9px}
+/* Success */
+.form-success{display:none;text-align:center;padding:32px 20px}
+.form-success.show{display:block}
+.fs-check{font-size:40px;color:var(--acc);margin-bottom:14px;line-height:1}
+.fs-title{font-family:var(--f-head);font-size:28px;margin-bottom:8px}
+.fs-desc{font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:4px}
+.form-reset{margin-top:14px;background:none;border:1px solid var(--line2);color:var(--muted);font-size:12px;padding:8px 16px;cursor:pointer;font-family:var(--f-body);transition:all .2s}
+.form-reset:hover{border-color:var(--acc);color:var(--acc)}
+@media(max-width:1000px){.cta-inner{grid-template-columns:1fr;gap:40px}}
+@media(max-width:480px){.form-card{padding:20px}}
+@media(max-width:600px){footer{flex-direction:column;align-items:flex-start;gap:16px}.foot-left{flex-direction:column;align-items:flex-start;gap:12px}.foot-right{gap:12px}}
+
+/* HERO FLOATING CARD */
+.hero-card{
+  position:relative;z-index:1;align-self:center;
+  background:var(--bg3);border:1px solid var(--line2);
+  padding:22px;
+  opacity:0;animation:up .9s ease .5s forwards;
+}
+.hero-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--acc),transparent)}
+.hc-label{font-size:10px;font-weight:700;letter-spacing:2px;color:var(--acc);text-transform:uppercase;margin-bottom:8px}
+.hc-title{font-family:var(--f-head);font-size:26px;letter-spacing:.5px;line-height:1;margin-bottom:3px}
+.hc-sub{font-size:12px;color:var(--muted);margin-bottom:16px}
+.hc-visual{
+  height:170px;border:1px solid var(--line);
+  margin-bottom:16px;position:relative;overflow:hidden;
+}
+.hc-visual img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 6s ease}
+.hc-card:hover .hc-visual img,.hero-card:hover .hc-visual img{transform:scale(1.05)}
+.hc-visual-badge{position:absolute;bottom:8px;left:10px;font-size:10px;letter-spacing:1.5px;color:rgba(255,255,255,.7);background:rgba(0,0,0,.5);padding:3px 8px;backdrop-filter:blur(4px)}
+@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.4}}
+.hc-specs{display:flex;flex-direction:column;gap:0;margin-bottom:16px}
+.hc-row{display:flex;justify-content:space-between;font-size:12px;padding:6px 0;border-bottom:1px solid var(--line)}
+.hc-row:last-child{border-bottom:none}
+.hc-row span:first-child{color:var(--muted2)}
+.hc-row span:last-child{color:var(--white);font-weight:600}
+.hc-footer{display:flex;align-items:center;justify-content:space-between;padding-top:12px;border-top:1px solid var(--line)}
+.hc-price{font-family:var(--f-head);font-size:30px;color:var(--white);line-height:1}
+.hc-price small{font-size:14px;color:var(--muted);font-family:var(--f-body);font-weight:400}
+.hc-btn{display:inline-flex;align-items:center;gap:7px;padding:0 14px;height:36px;background:#0077ff;color:#fff;font-size:12px;font-weight:600;text-decoration:none;transition:background .2s;-webkit-tap-highlight-color:transparent}
+.hc-btn:hover{background:#005fcc}
+
+/* Hero responsive */
+@media(max-width:1100px){
+  .hero{grid-template-columns:1fr 320px}
+}
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;grid-template-rows:auto auto}
+  .hero-card{display:none}
+}
 </style>
 
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"LocalBusiness","name":"DipPC","description":"Сборка ПК на заказ, кастомизация, апгрейд и обслуживание. Работаем по всей России, доставка СДЭК.","url":"https://fnay1.github.io/","sameAs":["https://vk.com/dippc","https://t.me/dippc"],"address":{"@type":"PostalAddress","addressLocality":"Ноябрьск","addressRegion":"ЯНАО","addressCountry":"RU"},"priceRange":"от 500₽","openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"09:00","closes":"21:00"},"hasOfferCatalog":{"@type":"OfferCatalog","name":"Услуги DipPC","itemListElement":[{"@type":"Offer","name":"Сборка ПК на заказ","price":"1500","priceCurrency":"RUB"},{"@type":"Offer","name":"Кастомизация ПК","price":"3000","priceCurrency":"RUB"},{"@type":"Offer","name":"Апгрейд ПК","price":"500","priceCurrency":"RUB"},{"@type":"Offer","name":"Чистка и ТО","price":"600","priceCurrency":"RUB"},{"@type":"Offer","name":"Консультация","price":"0","priceCurrency":"RUB"}]}}
+{"@context":"https://schema.org","@type":"LocalBusiness","name":"DipPC","description":"Сборка ПК на заказ, кастомизация, апгрейд и обслуживание. Работаем по всей России, доставка СДЭК.","url":"https://fnay1.github.io/","sameAs":["https://vk.com/dippc"],"address":{"@type":"PostalAddress","addressLocality":"Ноябрьск","addressRegion":"ЯНАО","addressCountry":"RU"},"priceRange":"от 500₽","openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"09:00","closes":"21:00"},"hasOfferCatalog":{"@type":"OfferCatalog","name":"Услуги DipPC","itemListElement":[{"@type":"Offer","name":"Сборка ПК на заказ","price":"1500","priceCurrency":"RUB"},{"@type":"Offer","name":"Кастомизация ПК","price":"3000","priceCurrency":"RUB"},{"@type":"Offer","name":"Апгрейд ПК","price":"500","priceCurrency":"RUB"},{"@type":"Offer","name":"Чистка и ТО","price":"600","priceCurrency":"RUB"},{"@type":"Offer","name":"Консультация","price":"0","priceCurrency":"RUB"}]}}
 </script>
 </head>
 <body>
 
 <!-- METRIKA: paste counter here -->
 <!-- VK_PIXEL: paste pixel here -->
+<div id="progress" role="progressbar" aria-hidden="true"></div>
 
 <div class="theme-switcher">
   <div class="theme-options" id="themeOpts" role="listbox" aria-label="Выбор темы">
@@ -282,9 +465,9 @@ footer{padding:22px clamp(16px,5vw,72px);padding-left:max(clamp(16px,5vw,72px),e
   <div class="nav-r">
     <ul class="nav-links">
       <li><a href="#services">Услуги</a></li>
-      <li><a href="#how">Как заказать</a></li>
-      <li><a href="#builds">Сборки</a></li>
+      <li><a href="#portfolio">Работы</a></li>
       <li><a href="#reviews">Отзывы</a></li>
+      <li><a href="#faq">FAQ</a></li>
     </ul>
     <a href="https://vk.com/dippc" target="_blank" rel="noopener noreferrer" class="nav-btn">Написать в ВКонтакте</a>
     <button class="burger" id="burgerBtn" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobileMenu">
@@ -293,34 +476,116 @@ footer{padding:22px clamp(16px,5vw,72px);padding-left:max(clamp(16px,5vw,72px),e
   </div>
 </nav>
 <div class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Мобильное меню">
-  <a href="#services">Услуги</a>
-  <a href="#how">Как заказать</a>
-  <a href="#builds">Сборки</a>
-  <a href="#reviews">Отзывы</a>
+  <a href="#services" onclick="document.getElementById('mobileMenu').classList.remove('open')">Услуги</a>
+  <a href="#portfolio" onclick="document.getElementById('mobileMenu').classList.remove('open')">Работы</a>
+  <a href="#reviews" onclick="document.getElementById('mobileMenu').classList.remove('open')">Отзывы</a>
+  <a href="#faq" onclick="document.getElementById('mobileMenu').classList.remove('open')">FAQ</a>
   <a href="https://vk.com/dippc" target="_blank" rel="noopener noreferrer">Написать в ВКонтакте →</a>
 </div>
 
 <section class="hero" aria-labelledby="hero-heading">
   <div class="hero-bg" aria-hidden="true"></div>
   <div class="hero-grid" aria-hidden="true"></div>
-  <div class="hero-label">Ноябрьск, ЯНАО &nbsp;/&nbsp; Доставка по всей России</div>
-  <h1 class="hero-title" id="hero-heading">
-    Dip<span style="color:var(--acc)">PC</span>
-    <em>Кастом &amp; Сборка</em>
-  </h1>
-  <p class="hero-sub">
-    Собираем ПК на заказ под любой бюджет, делаем кастом и апгрейд.
-    Отправляем <b>по всей России через СДЭК</b>.
-    Комплектующие с гарантией официальных магазинов.
-  </p>
-  <div class="hero-actions">
-    <a href="https://vk.com/dippc" target="_blank" rel="noopener noreferrer" class="btn-p">Написать в ВКонтакте</a>
-    <a href="#builds" class="btn-s">Посмотреть сборки</a>
+  <div class="hero-photo-bg" aria-hidden="true">
+    <img src="images/1/1.jpg" alt="" loading="eager">
   </div>
-  <div class="hero-bar" role="list" aria-label="Ключевые показатели">
-    <div role="listitem"><div class="hero-stat-n">48ч</div><div class="hero-stat-l">Среднее время сборки</div></div>
-    <div role="listitem"><div class="hero-stat-n">100%</div><div class="hero-stat-l">Гарантия на работу</div></div>
-    <div role="listitem"><div class="hero-stat-n">РФ</div><div class="hero-stat-l">Доставка СДЭК</div></div>
+
+  <!-- Левая колонка — текст -->
+  <div class="hero-content">
+    <div class="hero-label">Ноябрьск, ЯНАО &nbsp;/&nbsp; Доставка по всей России</div>
+    <h1 class="hero-title" id="hero-heading">
+      Dip<span style="color:var(--acc)">PC</span>
+      <em>Кастом &amp; Сборка</em>
+    </h1>
+    <p class="hero-sub">
+      Собираем ПК на заказ под любой бюджет, делаем кастом и апгрейд.
+      Отправляем <b>по всей России через СДЭК</b>.
+      Комплектующие с гарантией официальных магазинов.
+    </p>
+    <div class="hero-actions">
+      <a href="https://vk.com/dippc" target="_blank" rel="noopener noreferrer" class="btn-p">Написать в ВКонтакте</a>
+      <a href="#portfolio" class="btn-s">Посмотреть работы</a>
+    </div>
+    <div class="suppliers-strip" aria-label="Поставщики">
+      <span class="sup-label">Поставщики</span>
+      <span class="sup-badge">ДНС</span>
+      <span class="sup-badge">ОЗОН</span>
+      <span class="sup-badge">WILDBERRIES</span>
+    </div>
+    <div class="hero-bar" role="list" aria-label="Ключевые показатели">
+      <div role="listitem"><div class="hero-stat-n" data-count="48" data-suffix="ч">48ч</div><div class="hero-stat-l">Среднее время сборки</div></div>
+      <div role="listitem"><div class="hero-stat-n" data-count="100" data-suffix="%">100%</div><div class="hero-stat-l">Гарантия на работу</div></div>
+      <div role="listitem"><div class="hero-stat-n">РФ</div><div class="hero-stat-l">Доставка СДЭК</div></div>
+    </div>
+  </div>
+
+  <!-- Правая колонка — showcase карточка -->
+  <div class="hero-card" aria-hidden="true">
+    <div class="hc-label">Наша работа</div>
+    <div class="hc-title">Frost Dragon</div>
+    <div class="hc-sub">Кастом · Montec · Ice Blue</div>
+    <div class="hc-visual">
+      <img src="images/7/1.jpg" alt="Кастомная сборка — Ледяной Дракон" loading="eager">
+      <div class="hc-visual-badge">Montec Air 903 Max</div>
+    </div>
+    <div class="hc-specs">
+      <div class="hc-row"><span>CPU</span><span>Ryzen 7 7700X</span></div>
+      <div class="hc-row"><span>GPU</span><span>RTX 4070 Ti</span></div>
+      <div class="hc-row"><span>RAM</span><span>32 ГБ DDR5</span></div>
+      <div class="hc-row"><span>Стиль</span><span>Белый + Ice Blue</span></div>
+    </div>
+    <div class="hc-footer">
+      <div class="hc-price">от 120 000 <small>₽</small></div>
+      <a href="https://vk.com/dippc" target="_blank" rel="noopener noreferrer" class="hc-btn">
+        <svg width="13" height="10" viewBox="0 0 28 22" fill="currentColor"><path d="M15.08 21.1c-8.34 0-13.1-5.71-13.3-15.2H5.9c.14 6.97 3.22 9.93 5.65 10.54V5.9h3.83v5.85c2.4-.26 4.92-3.02 5.78-5.85h3.76c-.65 3.47-3.37 6.23-5.3 7.38 1.93.9 5.04 3.33 6.22 7.82h-4.15c-.9-2.82-3.16-5.01-6.31-5.32v5.32h-.3z"/></svg>
+        Заказать
+      </a>
+    </div>
+  </div>
+
+</section>
+
+<!-- TICKER -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span class="tick-item">Сборка ПК <span class="tick-dot"></span></span>
+    <span class="tick-item">Кастомизация <span class="tick-dot"></span></span>
+    <span class="tick-item">Апгрейд <span class="tick-dot"></span></span>
+    <span class="tick-item">Чистка и ТО <span class="tick-dot"></span></span>
+    <span class="tick-item">Доставка СДЭК <span class="tick-dot"></span></span>
+    <span class="tick-item">B2B / Тендеры <span class="tick-dot"></span></span>
+    <span class="tick-item">Гарантия на работу <span class="tick-dot"></span></span>
+    <span class="tick-item">Ноябрьск, ЯНАО <span class="tick-dot"></span></span>
+    <span class="tick-item">Сборка ПК <span class="tick-dot"></span></span>
+    <span class="tick-item">Кастомизация <span class="tick-dot"></span></span>
+    <span class="tick-item">Апгрейд <span class="tick-dot"></span></span>
+    <span class="tick-item">Чистка и ТО <span class="tick-dot"></span></span>
+    <span class="tick-item">Доставка СДЭК <span class="tick-dot"></span></span>
+    <span class="tick-item">B2B / Тендеры <span class="tick-dot"></span></span>
+    <span class="tick-item">Гарантия на работу <span class="tick-dot"></span></span>
+    <span class="tick-item">Ноябрьск, ЯНАО <span class="tick-dot"></span></span>
+  </div>
+</div>
+
+<!-- STATS BAR -->
+<section class="stats-bar" aria-label="Статистика">
+  <div class="stats-grid">
+    <div class="stat-item" data-reveal>
+      <div class="stat-n" data-count="50" data-suffix="+">50+</div>
+      <div class="stat-l">Готовых сборок</div>
+    </div>
+    <div class="stat-item" data-reveal data-d="1">
+      <div class="stat-n" data-count="48" data-suffix="ч">48ч</div>
+      <div class="stat-l">Среднее время сборки</div>
+    </div>
+    <div class="stat-item" data-reveal data-d="2">
+      <div class="stat-n" data-count="3" data-suffix=" года">3 года</div>
+      <div class="stat-l">На рынке</div>
+    </div>
+    <div class="stat-item" data-reveal data-d="3">
+      <div class="stat-n" data-count="100" data-suffix="%">100%</div>
+      <div class="stat-l">Гарантия на работу</div>
+    </div>
   </div>
 </section>
 
@@ -355,41 +620,72 @@ footer{padding:22px clamp(16px,5vw,72px);padding-left:max(clamp(16px,5vw,72px),e
   </div>
 </section>
 
+<section class="why" id="why" aria-labelledby="why-heading">
+  <div class="sec-tag">Наши преимущества</div>
+  <h2 class="sec-title" id="why-heading" data-reveal>Почему выбирают нас</h2>
+  <div class="why-grid">
+    <div class="why-item" data-reveal data-d="1">
+      <div class="why-num" aria-hidden="true">01</div>
+      <div class="why-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+      <div class="why-title">Гарантия на работу</div>
+      <p class="why-desc">Даём гарантию на все выполненные работы. Если что-то пошло не так — разберёмся бесплатно.</p>
+    </div>
+    <div class="why-item" data-reveal data-d="2">
+      <div class="why-num" aria-hidden="true">02</div>
+      <div class="why-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+      <div class="why-title">Сборка от 48 часов</div>
+      <p class="why-desc">Быстро согласуем конфиг, закупим комплектующие и соберём ПК без лишних задержек.</p>
+    </div>
+    <div class="why-item" data-reveal data-d="3">
+      <div class="why-num" aria-hidden="true">03</div>
+      <div class="why-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+      <div class="why-title">Честные цены</div>
+      <p class="why-desc">Комплектующие по ценам официальных магазинов — ДНС, Озон, WB. Никакой накрутки на железо.</p>
+    </div>
+    <div class="why-item" data-reveal data-d="4">
+      <div class="why-num" aria-hidden="true">04</div>
+      <div class="why-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
+      <div class="why-title">Доставка по России</div>
+      <p class="why-desc">Надёжная упаковка и отправка через СДЭК. Заказывали из Москвы, Екатеринбурга, Новосибирска.</p>
+    </div>
+  </div>
+</section>
+
 <section class="services" id="services" aria-labelledby="services-heading">
-  <div class="sec-tag">Что мы делаем</div>
-  <h2 class="sec-title" id="services-heading">Услуги</h2>
+  <div class="sec-tag" data-reveal>Что мы делаем</div>
+  <h2 class="sec-title" id="services-heading" data-reveal data-d="1">Услуги</h2>
   <div class="srv-grid">
-    <div class="srv">
+    <div class="srv" data-reveal>
       <div class="srv-ico"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
       <div class="srv-name">Кастомизация</div>
       <p class="srv-desc">Покраска видеокарт, кулеров и корпусных элементов. Тематические ПК в едином цвете.</p>
       <div class="srv-price">от 3 000 ₽</div>
     </div>
-    <div class="srv">
+    <div class="srv" data-reveal data-d="1">
       <div class="srv-ico"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
       <div class="srv-name">ПК на заказ</div>
       <p class="srv-desc">Подбираем конфигурацию под бюджет и задачи. Комплектующие с гарантией ДНС, Озон, WB.</p>
       <div class="srv-price">от 1 500 ₽ работа</div>
     </div>
-    <div class="srv">
+    <div class="srv" data-reveal data-d="2">
       <div class="srv-ico"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
       <div class="srv-name">Апгрейд</div>
       <p class="srv-desc">Замена комплектующих, установка нового железа, разгон. Приведём ваш ПК к актуальным стандартам.</p>
       <div class="srv-price">от 500 ₽ работа</div>
     </div>
-    <div class="srv">
+    <div class="srv" data-reveal data-d="3">
       <div class="srv-ico"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M3 12a9 9 0 1 0 18 0 9 9 0 0 0-18 0"/><path d="M12 8v4l3 3"/></svg></div>
       <div class="srv-name">Чистка и ТО</div>
       <p class="srv-desc">Чистка от пыли, замена термопасты и прокладок. Тише, холоднее — в день обращения.</p>
       <div class="srv-price">от 600 ₽</div>
     </div>
-    <div class="srv">
+    <div class="srv" data-reveal data-d="4">
       <div class="srv-ico"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
       <div class="srv-name">Консультация</div>
       <p class="srv-desc">Поможем выбрать конфигурацию, объясним разницу между вариантами. Онлайн или лично.</p>
       <div class="srv-price">Бесплатно</div>
     </div>
-    <div class="srv">
+    <div class="srv" data-reveal data-d="5">
       <div class="srv-ico"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></div>
       <div class="srv-name">B2B / Тендеры</div>
       <p class="srv-desc">Обслуживание и сборка ПК для организаций. Работаем по договору, закрывающие документы.</p>
@@ -399,252 +695,190 @@ footer{padding:22px clamp(16px,5vw,72px);padding-left:max(clamp(16px,5vw,72px),e
 </section>
 
 <section id="portfolio" aria-labelledby="portfolio-heading">
-  <div class="sec-tag">Портфолио</div>
-  <h2 class="sec-title" id="portfolio-heading">Наши работы</h2>
+  <div class="sec-tag" data-reveal>Портфолио</div>
+  <h2 class="sec-title" id="portfolio-heading" data-reveal data-d="1">Наши работы</h2>
   <div class="pf-filter" role="group" aria-label="Фильтр работ">
     <button class="pf-btn active" data-filter="all">Все</button>
     <button class="pf-btn" data-filter="custom">Кастом</button>
-    <button class="pf-btn" data-filter="build">Сборки</button>
-    <button class="pf-btn" data-filter="clean">Чистка</button>
+    <button class="pf-btn" data-filter="build">Игровые</button>
   </div>
   <div class="port-grid" id="pg" role="list">
-    <div class="port-card" data-cat="custom" role="listitem">
-      <div class="port-visual" style="background:#060606" aria-hidden="true">
-        <div style="position:relative;width:180px;height:160px">
-          <div style="position:absolute;inset:0;border-radius:8px;background:#0d0d0d;border:1px solid #222"></div>
-          <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:100px;height:6px;background:linear-gradient(90deg,#222,#666,#222);filter:blur(3px);opacity:.7"></div>
-          <div style="position:absolute;top:24px;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#333,transparent)"></div>
-          <div style="position:absolute;bottom:24px;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#333,transparent)"></div>
-        </div>
-      </div>
-      <div class="port-overlay">
-        <div class="po-num">#001</div>
-        <div class="po-name">Dark</div>
-        <div class="po-desc">Полностью чёрная сборка. Матовая покраска, подсветка отключена. Чистый минимализм.</div>
-      </div>
-      <div class="port-label"><div class="pl-num">#001</div><div class="pl-name">Dark</div></div>
-    </div>
-    <div class="port-card" data-cat="custom" role="listitem">
-      <div class="port-visual" style="background:#0a0e16" aria-hidden="true">
-        <div style="position:relative;width:180px;height:160px">
-          <div style="position:absolute;inset:0;border-radius:8px;background:#1a1e28;border:1px solid #2a3040"></div>
-          <div style="position:absolute;top:28px;left:28px;right:28px;bottom:28px;background:#eef2ff;border-radius:5px;border:1px solid #c8d4f0"></div>
-          <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:80px;height:6px;background:linear-gradient(90deg,#4488ff,#aaccff,#4488ff);filter:blur(3px);opacity:.9"></div>
-        </div>
-      </div>
-      <div class="port-overlay">
-        <div class="po-num">#002</div>
-        <div class="po-name">White</div>
-        <div class="po-desc">Белый корпус, белые вентиляторы, голубая ARGB-подсветка. Чистый и лёгкий образ.</div>
-      </div>
-      <div class="port-label"><div class="pl-num">#002</div><div class="pl-name">White</div></div>
-    </div>
-    <div class="port-card" data-cat="build" role="listitem">
-      <div class="port-visual" style="background:#0a0c0a" aria-hidden="true">
-        <div style="position:relative;width:180px;height:160px">
-          <div style="position:absolute;inset:0;border-radius:8px;background:#141814;border:1px solid #222a22"></div>
-          <div style="position:absolute;top:20px;left:20px;right:20px;height:50px;background:#1a201a;border-radius:4px;border:1px solid #2a322a"></div>
-          <div style="position:absolute;bottom:20px;left:20px;right:20px;height:40px;background:#1a201a;border-radius:4px;border:1px solid #2a322a"></div>
-        </div>
-      </div>
-      <div class="port-overlay">
-        <div class="po-num">#003</div>
-        <div class="po-name">Office</div>
-        <div class="po-desc">Строгая офисная сборка. Компактный форм-фактор, тихий кулер, без подсветки.</div>
-      </div>
-      <div class="port-label"><div class="pl-num">#003</div><div class="pl-name">Office</div></div>
-    </div>
-    <div class="port-card" data-cat="custom" role="listitem">
-      <div class="port-visual" style="background:#040c06" aria-hidden="true">
-        <div style="position:relative;width:180px;height:160px">
-          <div style="position:absolute;inset:0;border-radius:8px;background:#081408;border:1px solid #0a2a0a"></div>
-          <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:100px;height:8px;background:linear-gradient(90deg,#00ff44,#88ff00,#00ff44);filter:blur(4px);opacity:.9"></div>
-          <div style="position:absolute;top:20px;right:20px;width:50px;height:50px;background:radial-gradient(circle,#00ff44,transparent);filter:blur(14px);opacity:.6"></div>
-          <div style="position:absolute;bottom:0;left:0;right:0;height:36px;background:linear-gradient(transparent,rgba(0,255,68,.12));border-radius:0 0 8px 8px"></div>
-        </div>
-      </div>
-      <div class="port-overlay">
-        <div class="po-num">#004</div>
-        <div class="po-name">Кислый Донжуан</div>
-        <div class="po-desc">Кислотно-зелёная тема. Покраска видеокарты и кулера, кастомные ARGB-ленты.</div>
-      </div>
-      <div class="port-label"><div class="pl-num">#004</div><div class="pl-name">Кислый Донжуан</div></div>
-    </div>
-    <div class="port-card" data-cat="custom" role="listitem">
-      <div class="port-visual" style="background:#0c0404" aria-hidden="true">
-        <div style="position:relative;width:180px;height:160px">
-          <div style="position:absolute;inset:0;border-radius:8px;background:#1a0808;border:1px solid #3a1010"></div>
-          <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:100px;height:8px;background:linear-gradient(90deg,#ff1a00,#ff6644,#ff1a00);filter:blur(4px);opacity:.9"></div>
-          <div style="position:absolute;top:20px;right:20px;width:44px;height:44px;background:radial-gradient(circle,#ff3300,transparent);filter:blur(12px);opacity:.65"></div>
-          <div style="position:absolute;bottom:0;left:0;right:0;height:36px;background:linear-gradient(transparent,rgba(255,30,0,.14));border-radius:0 0 8px 8px"></div>
-        </div>
-      </div>
-      <div class="port-overlay">
-        <div class="po-num">#005</div>
-        <div class="po-name">Red Inferno</div>
-        <div class="po-desc">Полная покраска в красный. Корпус, кулер, видеокарта синхронизированы.</div>
-      </div>
-      <div class="port-label"><div class="pl-num">#005</div><div class="pl-name">Red Inferno</div></div>
-    </div>
-    <div class="port-card" data-cat="clean" role="listitem">
-      <div class="port-visual" style="background:#0a0d0a" aria-hidden="true">
-        <div style="display:flex;gap:14px;align-items:center">
-          <div style="position:relative;width:72px;height:96px">
-            <div style="position:absolute;inset:0;border-radius:5px;background:#1a1a0a;border:1px solid #2a2a10"></div>
-            <div style="position:absolute;inset:6px;background:repeating-linear-gradient(45deg,#2a2520,#2a2520 2px,#1a1510 2px,#1a1510 8px);border-radius:3px;opacity:.9"></div>
-            <div style="position:absolute;bottom:4px;left:0;right:0;text-align:center;font-size:8px;color:#666;font-family:monospace;letter-spacing:1px">ДО</div>
-          </div>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ff5f1f" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          <div style="position:relative;width:72px;height:96px">
-            <div style="position:absolute;inset:0;border-radius:5px;background:#0a1a0a;border:1px solid #1a3a1a"></div>
-            <div style="position:absolute;inset:6px;background:#0f1f0f;border-radius:3px"></div>
-            <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:36px;height:4px;background:#00ff88;filter:blur(4px);opacity:.7"></div>
-            <div style="position:absolute;bottom:4px;left:0;right:0;text-align:center;font-size:8px;color:#00aa55;font-family:monospace;letter-spacing:1px">ПОСЛЕ</div>
-          </div>
-        </div>
-      </div>
-      <div class="port-overlay">
-        <div class="po-num">#006</div>
-        <div class="po-name">Чистка ТО</div>
-        <div class="po-desc">RTX 3070, 3 года без обслуживания. Термопаста + прокладки. Температура −22°C.</div>
-      </div>
-      <div class="port-label"><div class="pl-num">#006</div><div class="pl-name">Чистка ТО</div></div>
-    </div>
-  </div>
-</section>
 
-<section class="builds" id="builds" aria-labelledby="builds-heading">
-  <div class="sec-tag">Конфигурации</div>
-  <h2 class="sec-title" id="builds-heading">Наши сборки</h2>
-  <div class="builds-grid">
-    <div class="build-card">
-      <div class="build-num">#001</div>
-      <div class="build-name">Dark</div>
-      <div class="build-sub">Тихая офисная / учёба</div>
-      <div class="specs">
-        <div class="s-row"><span class="s-k">CPU</span><span class="s-v">Intel i3-12100</span></div>
-        <div class="s-row"><span class="s-k">GPU</span><span class="s-v">Intel UHD 730</span></div>
-        <div class="s-row"><span class="s-k">RAM</span><span class="s-v">16 ГБ DDR4</span></div>
-        <div class="s-row"><span class="s-k">SSD</span><span class="s-v">512 ГБ NVMe</span></div>
-        <div class="s-row"><span class="s-k">PSU</span><span class="s-v">450W Bronze</span></div>
-        <div class="s-row"><span class="s-k">Стиль</span><span class="s-v">Матовый чёрный</span></div>
+    <!-- #001 Фиолетовый Panorama -->
+    <article class="pf-card" data-cat="custom" role="listitem" data-reveal>
+      <div class="pf-gallery">
+        <div class="pf-slides">
+          <img src="images/1/1.jpg" class="pf-img active" alt="Фиолетовый кастом ПК — фото 1" loading="lazy">
+          <img src="images/1/2.jpg" class="pf-img" alt="Фиолетовый кастом ПК — фото 2" loading="lazy">
+          <img src="images/1/3.jpg" class="pf-img" alt="Фиолетовый кастом ПК — фото 3" loading="lazy">
+          <img src="images/1/4.jpg" class="pf-img" alt="Фиолетовый кастом ПК — фото 4" loading="lazy">
+        </div>
+        <button class="pf-arr pf-arr-l" aria-label="Предыдущее фото">&#8249;</button>
+        <button class="pf-arr pf-arr-r" aria-label="Следующее фото">&#8250;</button>
+        <div class="pf-dots"></div>
+        <div class="pf-badge">#001</div>
+        <div class="pf-photo-count">4 фото</div>
       </div>
-      <div class="b-div"></div>
-      <div class="b-price"><span class="p-n">28 000</span><span class="p-sub">₽</span></div>
-      <a href="https://vk.com/dippc" target="_blank" rel="noopener noreferrer" class="b-btn">Заказать в ВКонтакте</a>
-      <div class="b-src">ДНС / Озон / WB</div>
-    </div>
-    <div class="build-card">
-      <div class="build-num">#002</div>
-      <div class="build-name">White</div>
-      <div class="build-sub">Игровая 1080p entry</div>
-      <div class="specs">
-        <div class="s-row"><span class="s-k">CPU</span><span class="s-v">Ryzen 5 5600</span></div>
-        <div class="s-row"><span class="s-k">GPU</span><span class="s-v">RX 6600 / RTX 3060</span></div>
-        <div class="s-row"><span class="s-k">RAM</span><span class="s-v">16 ГБ DDR4 3200</span></div>
-        <div class="s-row"><span class="s-k">SSD</span><span class="s-v">512 ГБ NVMe</span></div>
-        <div class="s-row"><span class="s-k">PSU</span><span class="s-v">650W Gold</span></div>
-        <div class="s-row"><span class="s-k">Стиль</span><span class="s-v">Белый + синяя подсветка</span></div>
+      <div class="pf-info">
+        <div>
+          <div class="pf-name">Void Emperor</div>
+          <div class="pf-cat">Кастом · Panorama · Purple ARGB</div>
+        </div>
+        <a href="https://vk.com/dippc" target="_blank" rel="noopener noreferrer" class="pf-btn-order">Заказать</a>
       </div>
-      <div class="b-div"></div>
-      <div class="b-price"><span class="p-n">52 000</span><span class="p-sub">₽</span></div>
-      <a href="https://vk.com/dippc" target="_blank" rel="noopener noreferrer" class="b-btn">Заказать в ВКонтакте</a>
-      <div class="b-src">ДНС / Озон / WB</div>
-    </div>
-    <div class="build-card">
-      <div class="build-num">#003</div>
-      <div class="build-name">Office</div>
-      <div class="build-sub">Для компаний и офисов</div>
-      <div class="specs">
-        <div class="s-row"><span class="s-k">CPU</span><span class="s-v">Intel i5-12400</span></div>
-        <div class="s-row"><span class="s-k">GPU</span><span class="s-v">Intel UHD 770</span></div>
-        <div class="s-row"><span class="s-k">RAM</span><span class="s-v">16 ГБ DDR4</span></div>
-        <div class="s-row"><span class="s-k">SSD</span><span class="s-v">256 ГБ + HDD 1 ТБ</span></div>
-        <div class="s-row"><span class="s-k">PSU</span><span class="s-v">400W 80+</span></div>
-        <div class="s-row"><span class="s-k">Корпус</span><span class="s-v">Micro-ATX, без RGB</span></div>
+    </article>
+
+    <!-- #002 Жёлтый Aorus -->
+    <article class="pf-card" data-cat="build" role="listitem" data-reveal data-d="1">
+      <div class="pf-gallery">
+        <div class="pf-slides">
+          <img src="images/2/1.jpg" class="pf-img active" alt="Жёлтый Aorus ПК — фото 1" loading="lazy">
+          <img src="images/2/2.jpg" class="pf-img" alt="Жёлтый Aorus ПК — фото 2" loading="lazy">
+          <img src="images/2/3.jpg" class="pf-img" alt="Жёлтый Aorus ПК — фото 3" loading="lazy">
+          <img src="images/2/4.jpg" class="pf-img" alt="Жёлтый Aorus ПК — фото 4" loading="lazy">
+        </div>
+        <button class="pf-arr pf-arr-l" aria-label="Предыдущее фото">&#8249;</button>
+        <button class="pf-arr pf-arr-r" aria-label="Следующее фото">&#8250;</button>
+        <div class="pf-dots"></div>
+        <div class="pf-badge">#002</div>
+        <div class="pf-photo-count">4 фото</div>
       </div>
-      <div class="b-div"></div>
-      <div class="b-price"><span class="p-n">32 000</span><span class="p-sub">₽</span></div>
-      <a href="https://vk.com/dippc" target="_blank" rel="noopener noreferrer" class="b-btn">Заказать в ВКонтакте</a>
-      <div class="b-src">ДНС / Озон / WB</div>
-    </div>
-    <div class="build-card feat">
-      <div class="feat-badge">Кастом</div>
-      <div class="build-num">#004</div>
-      <div class="build-name">Кислый Донжуан</div>
-      <div class="build-sub">Игровая 1440p + кастом</div>
-      <div class="specs">
-        <div class="s-row"><span class="s-k">CPU</span><span class="s-v">Ryzen 5 7600X</span></div>
-        <div class="s-row"><span class="s-k">GPU</span><span class="s-v">RTX 4070</span></div>
-        <div class="s-row"><span class="s-k">RAM</span><span class="s-v">32 ГБ DDR5 5600</span></div>
-        <div class="s-row"><span class="s-k">SSD</span><span class="s-v">1 ТБ NVMe</span></div>
-        <div class="s-row"><span class="s-k">PSU</span><span class="s-v">750W Gold</span></div>
-        <div class="s-row"><span class="s-k">Стиль</span><span class="s-v">Кислотный зелёный</span></div>
+      <div class="pf-info">
+        <div>
+          <div class="pf-name">Toxic Striker</div>
+          <div class="pf-cat">Игровой · Aorus Edition · Yellow ARGB</div>
+        </div>
+        <a href="https://vk.com/dippc" target="_blank" rel="noopener noreferrer" class="pf-btn-order">Заказать</a>
       </div>
-      <div class="b-div"></div>
-      <div class="b-price"><span class="p-n">98 000</span><span class="p-sub">₽</span></div>
-      <a href="https://vk.com/dippc" target="_blank" rel="noopener noreferrer" class="b-btn">Заказать в ВКонтакте</a>
-      <div class="b-src">ДНС / Озон / WB</div>
-    </div>
-    <div class="build-card">
-      <div class="build-num">#005</div>
-      <div class="build-name">Red Inferno</div>
-      <div class="build-sub">Игровая 1440p + кастом</div>
-      <div class="specs">
-        <div class="s-row"><span class="s-k">CPU</span><span class="s-v">Intel i7-13700K</span></div>
-        <div class="s-row"><span class="s-k">GPU</span><span class="s-v">RTX 4070 Ti</span></div>
-        <div class="s-row"><span class="s-k">RAM</span><span class="s-v">32 ГБ DDR5</span></div>
-        <div class="s-row"><span class="s-k">SSD</span><span class="s-v">1 ТБ NVMe</span></div>
-        <div class="s-row"><span class="s-k">PSU</span><span class="s-v">850W Platinum</span></div>
-        <div class="s-row"><span class="s-k">Стиль</span><span class="s-v">Красный кастом</span></div>
+    </article>
+
+    <!-- #003 Красный Инфернал -->
+    <article class="pf-card" data-cat="build" role="listitem" data-reveal data-d="2">
+      <div class="pf-gallery">
+        <div class="pf-slides">
+          <img src="images/3/1.jpg" class="pf-img active" alt="Красный ПК — фото 1" loading="lazy">
+          <img src="images/3/2.jpg" class="pf-img" alt="Красный ПК — фото 2" loading="lazy">
+          <img src="images/3/3.jpg" class="pf-img" alt="Красный ПК — фото 3" loading="lazy">
+          <img src="images/3/4.jpg" class="pf-img" alt="Красный ПК — фото 4" loading="lazy">
+        </div>
+        <button class="pf-arr pf-arr-l" aria-label="Предыдущее фото">&#8249;</button>
+        <button class="pf-arr pf-arr-r" aria-label="Следующее фото">&#8250;</button>
+        <div class="pf-dots"></div>
+        <div class="pf-badge">#003</div>
+        <div class="pf-photo-count">4 фото</div>
       </div>
-      <div class="b-div"></div>
-      <div class="b-price"><span class="p-n">115 000</span><span class="p-sub">₽</span></div>
-      <a href="https://vk.com/dippc" target="_blank" rel="noopener noreferrer" class="b-btn">Заказать в ВКонтакте</a>
-      <div class="b-src">ДНС / Озон / WB</div>
-    </div>
-    <div class="build-card">
-      <div class="build-num">#006</div>
-      <div class="build-name">Beast</div>
-      <div class="build-sub">4K / стриминг / монтаж</div>
-      <div class="specs">
-        <div class="s-row"><span class="s-k">CPU</span><span class="s-v">Ryzen 7 7800X3D</span></div>
-        <div class="s-row"><span class="s-k">GPU</span><span class="s-v">RTX 4080 Super</span></div>
-        <div class="s-row"><span class="s-k">RAM</span><span class="s-v">32 ГБ DDR5 6000</span></div>
-        <div class="s-row"><span class="s-k">SSD</span><span class="s-v">2 ТБ NVMe</span></div>
-        <div class="s-row"><span class="s-k">PSU</span><span class="s-v">1000W Platinum</span></div>
-        <div class="s-row"><span class="s-k">Охлаждение</span><span class="s-v">360mm AIO</span></div>
+      <div class="pf-info">
+        <div>
+          <div class="pf-name">Crimson Reaper</div>
+          <div class="pf-cat">Игровой · Red ARGB · RTX</div>
+        </div>
+        <a href="https://vk.com/dippc" target="_blank" rel="noopener noreferrer" class="pf-btn-order">Заказать</a>
       </div>
-      <div class="b-div"></div>
-      <div class="b-price"><span class="p-n">168 000</span><span class="p-sub">₽</span></div>
-      <a href="https://vk.com/dippc" target="_blank" rel="noopener noreferrer" class="b-btn">Заказать в ВКонтакте</a>
-      <div class="b-src">ДНС / Озон / WB</div>
-    </div>
-    <div class="build-card" style="border-style:dashed">
-      <div class="build-num">#007</div>
-      <div class="build-name">Ваш ПК</div>
-      <div class="build-sub">Индивидуальная сборка</div>
-      <div class="specs">
-        <div class="s-row"><span class="s-k">Конфигурация</span><span class="s-v">Любая</span></div>
-        <div class="s-row"><span class="s-k">Кастом</span><span class="s-v">На выбор</span></div>
-        <div class="s-row"><span class="s-k">Бюджет</span><span class="s-v">Обсуждаемый</span></div>
-        <div class="s-row"><span class="s-k">Доставка</span><span class="s-v">По России</span></div>
-        <div class="s-row"><span class="s-k">Гарантия</span><span class="s-v">На работу + железо</span></div>
-        <div class="s-row"><span class="s-k">Документы</span><span class="s-v">Для юрлиц</span></div>
+    </article>
+
+    <!-- #004 Синий Призрак -->
+    <article class="pf-card" data-cat="build" role="listitem" data-reveal data-d="3">
+      <div class="pf-gallery">
+        <div class="pf-slides">
+          <img src="images/4/1.jpg" class="pf-img active" alt="Синий ПК — фото 1" loading="lazy">
+          <img src="images/4/2.jpg" class="pf-img" alt="Синий ПК — фото 2" loading="lazy">
+          <img src="images/4/3.jpg" class="pf-img" alt="Синий ПК — фото 3" loading="lazy">
+        </div>
+        <button class="pf-arr pf-arr-l" aria-label="Предыдущее фото">&#8249;</button>
+        <button class="pf-arr pf-arr-r" aria-label="Следующее фото">&#8250;</button>
+        <div class="pf-dots"></div>
+        <div class="pf-badge">#004</div>
+        <div class="pf-photo-count">3 фото</div>
       </div>
-      <div class="b-div"></div>
-      <div class="b-price"><span class="p-n">?</span><span class="p-sub">По конфигурации</span></div>
-      <a href="https://vk.com/dippc" target="_blank" rel="noopener noreferrer" class="b-btn">Обсудить в ВКонтакте</a>
-      <div class="b-src">ДНС / Озон / WB</div>
-    </div>
+      <div class="pf-info">
+        <div>
+          <div class="pf-name">Arctic Phantom</div>
+          <div class="pf-cat">Игровой · Cyan ARGB · Mesh</div>
+        </div>
+        <a href="https://vk.com/dippc" target="_blank" rel="noopener noreferrer" class="pf-btn-order">Заказать</a>
+      </div>
+    </article>
+
+    <!-- #005 Белый Лофт -->
+    <article class="pf-card" data-cat="custom" role="listitem" data-reveal data-d="4">
+      <div class="pf-gallery">
+        <div class="pf-slides">
+          <img src="images/5/1.jpg" class="pf-img active" alt="Белый кастом ПК — фото 1" loading="lazy">
+          <img src="images/5/2.jpg" class="pf-img" alt="Белый кастом ПК — фото 2" loading="lazy">
+          <img src="images/5/3.jpg" class="pf-img" alt="Белый кастом ПК — фото 3" loading="lazy">
+          <img src="images/5/4.jpg" class="pf-img" alt="Белый кастом ПК — фото 4" loading="lazy">
+        </div>
+        <button class="pf-arr pf-arr-l" aria-label="Предыдущее фото">&#8249;</button>
+        <button class="pf-arr pf-arr-r" aria-label="Следующее фото">&#8250;</button>
+        <div class="pf-dots"></div>
+        <div class="pf-badge">#005</div>
+        <div class="pf-photo-count">4 фото</div>
+      </div>
+      <div class="pf-info">
+        <div>
+          <div class="pf-name">White Tempest</div>
+          <div class="pf-cat">Кастом · White + Wood · СЖО</div>
+        </div>
+        <a href="https://vk.com/dippc" target="_blank" rel="noopener noreferrer" class="pf-btn-order">Заказать</a>
+      </div>
+    </article>
+
+    <!-- #006 Розовый Хищник -->
+    <article class="pf-card" data-cat="custom" role="listitem" data-reveal data-d="5">
+      <div class="pf-gallery">
+        <div class="pf-slides">
+          <img src="images/6/1.jpg" class="pf-img active" alt="Розовый кастом ПК — фото 1" loading="lazy">
+          <img src="images/6/2.jpg" class="pf-img" alt="Розовый кастом ПК — фото 2" loading="lazy">
+          <img src="images/6/3.jpg" class="pf-img" alt="Розовый кастом ПК — фото 3" loading="lazy">
+          <img src="images/6/4.jpg" class="pf-img" alt="Розовый кастом ПК — фото 4" loading="lazy">
+        </div>
+        <button class="pf-arr pf-arr-l" aria-label="Предыдущее фото">&#8249;</button>
+        <button class="pf-arr pf-arr-r" aria-label="Следующее фото">&#8250;</button>
+        <div class="pf-dots"></div>
+        <div class="pf-badge">#006</div>
+        <div class="pf-photo-count">4 фото</div>
+      </div>
+      <div class="pf-info">
+        <div>
+          <div class="pf-name">Neon Viper</div>
+          <div class="pf-cat">Кастом · Magenta ARGB · RTX</div>
+        </div>
+        <a href="https://vk.com/dippc" target="_blank" rel="noopener noreferrer" class="pf-btn-order">Заказать</a>
+      </div>
+    </article>
+
+    <!-- #007 Ледяной Дракон -->
+    <article class="pf-card" data-cat="custom" role="listitem" data-reveal data-d="6">
+      <div class="pf-gallery">
+        <div class="pf-slides">
+          <img src="images/7/1.jpg" class="pf-img active" alt="Ледяной Дракон кастом ПК — фото 1" loading="lazy">
+          <img src="images/7/2.jpg" class="pf-img" alt="Ледяной Дракон кастом ПК — фото 2" loading="lazy">
+          <img src="images/7/3.jpg" class="pf-img" alt="Ледяной Дракон кастом ПК — фото 3" loading="lazy">
+          <img src="images/7/4.jpg" class="pf-img" alt="Ледяной Дракон кастом ПК — фото 4" loading="lazy">
+        </div>
+        <button class="pf-arr pf-arr-l" aria-label="Предыдущее фото">&#8249;</button>
+        <button class="pf-arr pf-arr-r" aria-label="Следующее фото">&#8250;</button>
+        <div class="pf-dots"></div>
+        <div class="pf-badge">#007</div>
+        <div class="pf-photo-count">4 фото</div>
+      </div>
+      <div class="pf-info">
+        <div>
+          <div class="pf-name">Frost Dragon</div>
+          <div class="pf-cat">Кастом · Montec · Spiral cables</div>
+        </div>
+        <a href="https://vk.com/dippc" target="_blank" rel="noopener noreferrer" class="pf-btn-order">Заказать</a>
+      </div>
+    </article>
+
   </div>
 </section>
 
 <section id="reviews" aria-labelledby="reviews-heading">
-  <div class="sec-tag">Отзывы</div>
-  <h2 class="sec-title" id="reviews-heading">Клиенты о нас</h2>
+  <div class="sec-tag" data-reveal>Отзывы</div>
+  <h2 class="sec-title" id="reviews-heading" data-reveal data-d="1">Клиенты о нас</h2>
   <div class="rev-grid">
-    <article class="rev-card">
+    <article class="rev-card" data-reveal>
       <div class="rev-q" aria-hidden="true">"</div>
       <div class="rev-stars" aria-label="Оценка: 5 из 5 звёзд">
         <svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
@@ -656,7 +890,7 @@ footer{padding:22px clamp(16px,5vw,72px);padding-left:max(clamp(16px,5vw,72px),e
       <p class="rev-text">Заказывал #002 White. Собрали за день, показали как всё работает, дали советы по уходу. Упаковка отличная — приехал без единой царапины через СДЭК.</p>
       <div class="rev-bot"><div><div class="rev-author">Дмитрий К.</div><div class="rev-meta">Сборка #002, Ноябрьск</div></div><div class="rev-src">ВКонтакте</div></div>
     </article>
-    <article class="rev-card">
+    <article class="rev-card" data-reveal data-d="1">
       <div class="rev-q" aria-hidden="true">"</div>
       <div class="rev-stars" aria-label="Оценка: 5 из 5 звёзд">
         <svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
@@ -668,7 +902,7 @@ footer{padding:22px clamp(16px,5vw,72px);padding-left:max(clamp(16px,5vw,72px),e
       <p class="rev-text">Попросил сделать кислотно-зелёный кастом — получил #004. Видеокарта, кулер и корпусная панель смотрятся как единый объект. Люди останавливаются у стола и спрашивают откуда.</p>
       <div class="rev-bot"><div><div class="rev-author">Алексей Р.</div><div class="rev-meta">Кастом #004, Ноябрьск</div></div><div class="rev-src">ВКонтакте</div></div>
     </article>
-    <article class="rev-card">
+    <article class="rev-card" data-reveal data-d="2">
       <div class="rev-q" aria-hidden="true">"</div>
       <div class="rev-stars" aria-label="Оценка: 5 из 5 звёзд">
         <svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
@@ -680,7 +914,7 @@ footer{padding:22px clamp(16px,5vw,72px);padding-left:max(clamp(16px,5vw,72px),e
       <p class="rev-text">Чистил ПК впервые за 4 года. Температура CPU упала на 18°C, шум почти исчез. Забрали вечером и отдали утром. Теперь раз в год буду только к ним.</p>
       <div class="rev-bot"><div><div class="rev-author">Игорь М.</div><div class="rev-meta">Чистка + ТО, Ноябрьск</div></div><div class="rev-src">ВКонтакте</div></div>
     </article>
-    <article class="rev-card">
+    <article class="rev-card" data-reveal data-d="3">
       <div class="rev-q" aria-hidden="true">"</div>
       <div class="rev-stars" aria-label="Оценка: 5 из 5 звёзд">
         <svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
@@ -692,7 +926,7 @@ footer{padding:22px clamp(16px,5vw,72px);padding-left:max(clamp(16px,5vw,72px),e
       <p class="rev-text">Заказывал из Екатеринбурга. Общались в ВКонтакте, быстро согласовали конфиг. Дошло в отличном состоянии, сразу завелось. Буду рекомендовать всем знакомым.</p>
       <div class="rev-bot"><div><div class="rev-author">Сергей Т.</div><div class="rev-meta">Сборка #002, доставка Екатеринбург</div></div><div class="rev-src">ВКонтакте</div></div>
     </article>
-    <article class="rev-card">
+    <article class="rev-card" data-reveal data-d="4">
       <div class="rev-q" aria-hidden="true">"</div>
       <div class="rev-stars" aria-label="Оценка: 5 из 5 звёзд">
         <svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
@@ -704,7 +938,7 @@ footer{padding:22px clamp(16px,5vw,72px);padding-left:max(clamp(16px,5vw,72px),e
       <p class="rev-text">Нужно было 8 офисных машин для нашей компании. Оформили договор, дали все закрывающие документы. Сроки выдержали, цена оказалась ниже, чем в ДНС под ключ.</p>
       <div class="rev-bot"><div><div class="rev-author">ООО «СеверСтрой»</div><div class="rev-meta">8× #003 Office, B2B</div></div><div class="rev-src">Прямой контакт</div></div>
     </article>
-    <article class="rev-card">
+    <article class="rev-card" data-reveal data-d="5">
       <div class="rev-q" aria-hidden="true">"</div>
       <div class="rev-stars" aria-label="Оценка: 5 из 5 звёзд">
         <svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
@@ -719,39 +953,139 @@ footer{padding:22px clamp(16px,5vw,72px);padding-left:max(clamp(16px,5vw,72px),e
   </div>
 </section>
 
+<!-- FAQ -->
+<section class="faq-section" id="faq" aria-labelledby="faq-heading">
+  <div class="sec-tag" data-reveal>Частые вопросы</div>
+  <h2 class="sec-title" id="faq-heading" data-reveal data-d="1">FAQ</h2>
+  <div class="faq-list" data-reveal data-d="2">
+
+    <details class="faq-item">
+      <summary>Сколько времени занимает сборка ПК?</summary>
+      <div class="faq-body">Стандартная сборка — <strong>1–2 дня</strong> с момента согласования конфигурации и оплаты. Кастомные работы (покраска, ARGB-ленты) занимают 2–4 дня в зависимости от объёма. Для срочных заказов — уточняйте в <a href="https://vk.com/dippc" target="_blank" rel="noopener noreferrer">ВКонтакте</a>.</div>
+    </details>
+
+    <details class="faq-item">
+      <summary>Как оплатить заказ?</summary>
+      <div class="faq-body">Принимаем перевод на карту (СБП), наличные при самовывозе в Ноябрьске. Для юрлиц — безналичный расчёт по договору с полным пакетом закрывающих документов.</div>
+    </details>
+
+    <details class="faq-item">
+      <summary>Как доставляете? Что если ПК повредится при доставке?</summary>
+      <div class="faq-body">Отправляем через <strong>СДЭК</strong> по всей России. Каждый ПК упаковывается с несколькими слоями защиты. В случае повреждения при транспортировке — разбираемся с ситуацией вместе, не бросаем клиента один на один с проблемой.</div>
+    </details>
+
+    <details class="faq-item">
+      <summary>Какая гарантия на сборку?</summary>
+      <div class="faq-body">Гарантия на <strong>работу по сборке</strong> — бессрочно (если что-то пошло не так по нашей вине — исправим бесплатно). Гарантия на <strong>комплектующие</strong> — согласно гарантии производителя и магазина (ДНС, Озон, WB). Обычно это 1–3 года в зависимости от компонента.</div>
+    </details>
+
+    <details class="faq-item">
+      <summary>Работаете с организациями и тендерами?</summary>
+      <div class="faq-body">Да. Оформляем договор, выставляем счёт, предоставляем полный пакет закрывающих документов (акт, накладная, счёт-фактура при необходимости). Работали с несколькими организациями в ЯНАО. Напишите в <a href="https://vk.com/dippc" target="_blank" rel="noopener noreferrer">ВКонтакте</a> — обсудим условия.</div>
+    </details>
+
+    <details class="faq-item">
+      <summary>Можно ли заказать кастом своего цвета / темы?</summary>
+      <div class="faq-body">Да, это наша специализация. Покраска видеокарт, кулеров, корпусных элементов — под любой цвет. Также делаем ARGB-ленты и кастомные кабельные решения. Напишите, что хотите — обсудим и рассчитаем стоимость.</div>
+    </details>
+
+  </div>
+</section>
+
 <section class="cta" id="contact" aria-labelledby="cta-heading">
   <div class="cta-bg" aria-hidden="true"></div>
-  <div class="sec-tag">Написать нам</div>
-  <h2 class="cta-title" id="cta-heading">Нужен<br><em>хороший ПК?</em></h2>
-  <p class="cta-sub">Напишите нам в ВКонтакте — расскажите задачу и бюджет, подберём лучшую конфигурацию и всё организуем.</p>
-  <div class="services-tags" aria-label="Услуги">
-    <span class="s-tag">ПК на заказ</span>
-    <span class="s-tag">Кастом</span>
-    <span class="s-tag">Апгрейд</span>
-    <span class="s-tag">Чистка</span>
-    <span class="s-tag">Консультация</span>
-    <span class="s-tag">B2B / Тендеры</span>
-    <span class="s-tag">Доставка по РФ</span>
-  </div>
-  <a href="https://vk.com/dippc" target="_blank" rel="noopener noreferrer" class="btn-p" style="font-size:15px;padding:0 36px;min-height:52px">
-    <svg width="20" height="16" viewBox="0 0 28 22" fill="currentColor" aria-hidden="true"><path d="M15.08 21.1c-8.34 0-13.1-5.71-13.3-15.2H5.9c.14 6.97 3.22 9.93 5.65 10.54V5.9h3.83v5.85c2.4-.26 4.92-3.02 5.78-5.85h3.76c-.65 3.47-3.37 6.23-5.3 7.38 1.93.9 5.04 3.33 6.22 7.82h-4.15c-.9-2.82-3.16-5.01-6.31-5.32v5.32h-.3z"/></svg>
-    Открыть ВКонтакте
-  </a>
-  <div class="social-row">
-    <a href="https://vk.com/dippc" target="_blank" rel="noopener noreferrer" class="soc-link vk-main">
-      <svg viewBox="0 0 28 22" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M15.08 21.1c-8.34 0-13.1-5.71-13.3-15.2H5.9c.14 6.97 3.22 9.93 5.65 10.54V5.9h3.83v5.85c2.4-.26 4.92-3.02 5.78-5.85h3.76c-.65 3.47-3.37 6.23-5.3 7.38 1.93.9 5.04 3.33 6.22 7.82h-4.15c-.9-2.82-3.16-5.01-6.31-5.32v5.32h-.3z"/></svg>
-      ВКонтакте — vk.com/dippc
-    </a>
-    <a href="https://t.me/dippc" target="_blank" rel="noopener noreferrer" class="soc-link">
-      <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 5L2 12.5l7 1M21 5l-5 15-7-6.5M21 5L9 13.5m0 0V19l3.5-3"/></svg>
-      Telegram — @dippc
-    </a>
+  <div class="cta-inner">
+    <!-- Левая колонка -->
+    <div class="cta-left">
+      <div class="sec-tag" data-reveal>Написать нам</div>
+      <h2 class="cta-title" id="cta-heading" data-reveal data-d="1">Нужен<br><em>хороший ПК?</em></h2>
+      <p class="cta-desc" data-reveal data-d="2">Оставьте заявку — расскажите задачу и бюджет, подберём лучшую конфигурацию и всё организуем. Отвечаем быстро.</p>
+      <div class="cta-tags" data-reveal data-d="3">
+        <span class="s-tag">ПК на заказ</span>
+        <span class="s-tag">Кастом</span>
+        <span class="s-tag">Апгрейд</span>
+        <span class="s-tag">Чистка</span>
+        <span class="s-tag">Консультация</span>
+        <span class="s-tag">B2B / Тендеры</span>
+        <span class="s-tag">Доставка по РФ</span>
+      </div>
+      <a href="https://vk.com/dippc" target="_blank" rel="noopener noreferrer" class="btn-p cta-vk-btn" data-reveal data-d="4">
+        <svg width="18" height="14" viewBox="0 0 28 22" fill="currentColor" aria-hidden="true"><path d="M15.08 21.1c-8.34 0-13.1-5.71-13.3-15.2H5.9c.14 6.97 3.22 9.93 5.65 10.54V5.9h3.83v5.85c2.4-.26 4.92-3.02 5.78-5.85h3.76c-.65 3.47-3.37 6.23-5.3 7.38 1.93.9 5.04 3.33 6.22 7.82h-4.15c-.9-2.82-3.16-5.01-6.31-5.32v5.32h-.3z"/></svg>
+        Написать в ВКонтакте
+      </a>
+    </div>
+    <!-- Правая колонка — форма -->
+    <div class="cta-right" data-reveal data-d="2">
+      <div class="form-card" id="formCard">
+        <div class="form-head">
+          <div class="form-title">Оставить заявку</div>
+          <div class="form-sub">Заполните — мы свяжемся через ВКонтакте</div>
+        </div>
+        <form id="orderForm" novalidate>
+          <div class="form-group">
+            <label for="f-name">Ваше имя</label>
+            <input type="text" id="f-name" name="name" placeholder="Как к вам обращаться" autocomplete="given-name" required>
+          </div>
+          <div class="form-group">
+            <label for="f-service">Что нужно</label>
+            <select id="f-service" name="service" required>
+              <option value="" disabled selected>Выберите услугу</option>
+              <option value="Сборка ПК на заказ">Сборка ПК на заказ</option>
+              <option value="Кастомизация ПК">Кастомизация / покраска</option>
+              <option value="Апгрейд">Апгрейд</option>
+              <option value="Чистка и ТО">Чистка и ТО</option>
+              <option value="Консультация">Консультация</option>
+              <option value="B2B / Тендер">B2B / Тендер</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="f-budget">Бюджет</label>
+            <input type="text" id="f-budget" name="budget" placeholder="Например: 60 000 ₽">
+          </div>
+          <div class="form-group">
+            <label for="f-comment">Комментарий (не обязательно)</label>
+            <textarea id="f-comment" name="comment" rows="3" placeholder="Для чего ПК, пожелания по цвету, срочность..."></textarea>
+          </div>
+          <button type="submit" class="form-submit">
+            <svg width="16" height="13" viewBox="0 0 28 22" fill="currentColor" aria-hidden="true"><path d="M15.08 21.1c-8.34 0-13.1-5.71-13.3-15.2H5.9c.14 6.97 3.22 9.93 5.65 10.54V5.9h3.83v5.85c2.4-.26 4.92-3.02 5.78-5.85h3.76c-.65 3.47-3.37 6.23-5.3 7.38 1.93.9 5.04 3.33 6.22 7.82h-4.15c-.9-2.82-3.16-5.01-6.31-5.32v5.32h-.3z"/></svg>
+            Отправить через ВКонтакте
+          </button>
+          <p class="form-note">Данные не хранятся — заявка открывает ВКонтакте</p>
+        </form>
+      </div>
+      <!-- Success state -->
+      <div class="form-success" id="formSuccess" aria-live="polite">
+        <div class="fs-check">✓</div>
+        <div class="fs-title">Заявка готова!</div>
+        <div class="fs-desc">Ваш запрос сформирован. Нажмите кнопку ниже, чтобы отправить его нам в ВКонтакте.</div>
+        <a id="vkFinalBtn" href="https://vk.com/dippc" target="_blank" rel="noopener noreferrer" class="btn-p" style="margin-top:20px;width:100%;justify-content:center">
+          <svg width="18" height="14" viewBox="0 0 28 22" fill="currentColor" aria-hidden="true"><path d="M15.08 21.1c-8.34 0-13.1-5.71-13.3-15.2H5.9c.14 6.97 3.22 9.93 5.65 10.54V5.9h3.83v5.85c2.4-.26 4.92-3.02 5.78-5.85h3.76c-.65 3.47-3.37 6.23-5.3 7.38 1.93.9 5.04 3.33 6.22 7.82h-4.15c-.9-2.82-3.16-5.01-6.31-5.32v5.32h-.3z"/></svg>
+          Написать в ВКонтакте
+        </a>
+        <button class="form-reset" id="formReset">Отправить другую заявку</button>
+      </div>
+    </div>
   </div>
 </section>
 
 <footer>
-  <div class="foot-logo">Dip<span>PC</span></div>
-  <div class="foot-copy">Ноябрьск, ЯНАО &nbsp;&middot;&nbsp; Доставка по России &nbsp;&middot;&nbsp; 2026</div>
+  <div class="foot-left">
+    <div class="foot-logo">Dip<span>PC</span></div>
+    <nav class="foot-nav" aria-label="Быстрые ссылки">
+      <a href="#services">Услуги</a>
+      <a href="#portfolio">Работы</a>
+      <a href="#reviews">Отзывы</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Контакт</a>
+    </nav>
+  </div>
+  <div class="foot-right">
+    <a href="https://vk.com/dippc" target="_blank" rel="noopener noreferrer" class="foot-vk">
+      <svg viewBox="0 0 28 22" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M15.08 21.1c-8.34 0-13.1-5.71-13.3-15.2H5.9c.14 6.97 3.22 9.93 5.65 10.54V5.9h3.83v5.85c2.4-.26 4.92-3.02 5.78-5.85h3.76c-.65 3.47-3.37 6.23-5.3 7.38 1.93.9 5.04 3.33 6.22 7.82h-4.15c-.9-2.82-3.16-5.01-6.31-5.32v5.32h-.3z"/></svg>
+      vk.com/dippc
+    </a>
+    <div class="foot-copy">Ноябрьск, ЯНАО &nbsp;&middot;&nbsp; 2026</div>
+  </div>
 </footer>
 
 <script type="module">
@@ -759,13 +1093,15 @@ const themeToggleBtn = document.getElementById('themeToggleBtn');
 const themeOpts = document.getElementById('themeOpts');
 const burgerBtn = document.getElementById('burgerBtn');
 const mobileMenu = document.getElementById('mobileMenu');
+const nav = document.querySelector('nav');
+const progress = document.getElementById('progress');
 
+/* ── Theme ── */
 themeToggleBtn.addEventListener('click', (e) => {
   e.stopPropagation();
   const isOpen = themeOpts.classList.toggle('open');
   themeToggleBtn.setAttribute('aria-expanded', String(isOpen));
 });
-
 themeOpts.addEventListener('click', (e) => {
   const opt = e.target.closest('.t-opt');
   if (!opt) return;
@@ -779,14 +1115,26 @@ themeOpts.addEventListener('click', (e) => {
   opt.setAttribute('aria-selected', 'true');
   themeOpts.classList.remove('open');
   themeToggleBtn.setAttribute('aria-expanded', 'false');
+  try { localStorage.setItem('dippc-theme', t); } catch(e) {}
 });
+try {
+  const saved = localStorage.getItem('dippc-theme');
+  if (saved) {
+    document.body.dataset.theme = saved === 'dark' ? '' : saved;
+    document.querySelectorAll('.t-opt').forEach(o => {
+      const match = o.dataset.themeSet === saved;
+      o.classList.toggle('active', match);
+      o.setAttribute('aria-selected', String(match));
+    });
+  }
+} catch(e) {}
 
+/* ── Burger ── */
 burgerBtn.addEventListener('click', (e) => {
   e.stopPropagation();
   const isOpen = mobileMenu.classList.toggle('open');
   burgerBtn.setAttribute('aria-expanded', String(isOpen));
 });
-
 mobileMenu.addEventListener('click', (e) => {
   if (e.target.tagName === 'A') {
     mobileMenu.classList.remove('open');
@@ -794,33 +1142,7 @@ mobileMenu.addEventListener('click', (e) => {
   }
 });
 
-const pfBtns = document.querySelectorAll('.pf-btn');
-pfBtns.forEach((btn) => {
-  btn.addEventListener('click', () => {
-    pfBtns.forEach((b) => b.classList.remove('active'));
-    btn.classList.add('active');
-    const cat = btn.dataset.filter;
-    document.querySelectorAll('.port-card').forEach((card) => {
-      const show = cat === 'all' || card.dataset.cat === cat;
-      if (show) {
-        card.style.display = '';
-        card.style.opacity = '0';
-        card.style.transform = 'scale(0.97)';
-        card.style.transition = '';
-        requestAnimationFrame(() => {
-          requestAnimationFrame(() => {
-            card.style.transition = 'opacity .3s, transform .3s';
-            card.style.opacity = '1';
-            card.style.transform = '';
-          });
-        });
-      } else {
-        card.style.display = 'none';
-      }
-    });
-  });
-});
-
+/* ── Close on outside click / Escape ── */
 document.addEventListener('click', (e) => {
   if (!e.target.closest('.theme-switcher')) {
     themeOpts.classList.remove('open');
@@ -831,7 +1153,6 @@ document.addEventListener('click', (e) => {
     burgerBtn.setAttribute('aria-expanded', 'false');
   }
 });
-
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') {
     themeOpts.classList.remove('open');
@@ -840,6 +1161,155 @@ document.addEventListener('keydown', (e) => {
     burgerBtn.setAttribute('aria-expanded', 'false');
   }
 });
+
+/* ── Portfolio filter ── */
+const pfBtns = document.querySelectorAll('.pf-btn');
+pfBtns.forEach((btn) => {
+  btn.addEventListener('click', () => {
+    pfBtns.forEach((b) => b.classList.remove('active'));
+    btn.classList.add('active');
+    const cat = btn.dataset.filter;
+    document.querySelectorAll('.pf-card').forEach((card) => {
+      const show = cat === 'all' || card.dataset.cat === cat;
+      if (show) {
+        card.style.display = '';
+        card.style.opacity = '0';
+        card.style.transform = 'scale(0.97)';
+        card.style.transition = '';
+        requestAnimationFrame(() => requestAnimationFrame(() => {
+          card.style.transition = 'opacity .3s, transform .3s';
+          card.style.opacity = '1';
+          card.style.transform = '';
+        }));
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  });
+});
+
+/* ── Nav scroll shadow ── */
+const onScroll = () => {
+  nav.classList.toggle('scrolled', window.scrollY > 10);
+  if (progress) {
+    const doc = document.documentElement;
+    const scrolled = doc.scrollTop || document.body.scrollTop;
+    const total = doc.scrollHeight - doc.clientHeight;
+    progress.style.width = total > 0 ? (scrolled / total * 100) + '%' : '0%';
+  }
+};
+window.addEventListener('scroll', onScroll, { passive: true });
+
+/* ── Scroll reveal ── */
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('[data-reveal]').forEach(el => revealObserver.observe(el));
+
+/* ── Counter animation ── */
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    const el = entry.target;
+    const target = parseInt(el.dataset.count, 10);
+    const suffix = el.dataset.suffix || '';
+    let start = 0;
+    const duration = 1200;
+    const startTime = performance.now();
+    const tick = (now) => {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.round(start + (target - start) * eased) + suffix;
+      if (progress < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+    counterObserver.unobserve(el);
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('[data-count]').forEach(el => counterObserver.observe(el));
+
+/* ── Portfolio gallery slider ── */
+document.querySelectorAll('.pf-gallery').forEach(gallery => {
+  const imgs = gallery.querySelectorAll('.pf-img');
+  if (imgs.length <= 1) return;
+  const dotsEl = gallery.querySelector('.pf-dots');
+  let cur = 0;
+  let timer = null;
+
+  imgs.forEach((_, i) => {
+    const d = document.createElement('button');
+    d.className = 'pf-dot' + (i === 0 ? ' active' : '');
+    d.setAttribute('aria-label', 'Фото ' + (i + 1));
+    d.addEventListener('click', (e) => { e.stopPropagation(); go(i); resetAuto(); });
+    dotsEl.appendChild(d);
+  });
+
+  function go(n) {
+    imgs[cur].classList.remove('active');
+    dotsEl.children[cur].classList.remove('active');
+    cur = (n + imgs.length) % imgs.length;
+    imgs[cur].classList.add('active');
+    dotsEl.children[cur].classList.add('active');
+  }
+
+  function resetAuto() {
+    clearInterval(timer);
+    timer = setInterval(() => go(cur + 1), 4000);
+  }
+
+  gallery.querySelector('.pf-arr-l')?.addEventListener('click', (e) => { e.stopPropagation(); go(cur - 1); resetAuto(); });
+  gallery.querySelector('.pf-arr-r')?.addEventListener('click', (e) => { e.stopPropagation(); go(cur + 1); resetAuto(); });
+
+  // Touch swipe
+  let tx = 0;
+  gallery.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, { passive: true });
+  gallery.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - tx;
+    if (Math.abs(dx) > 40) { go(dx < 0 ? cur + 1 : cur - 1); resetAuto(); }
+  }, { passive: true });
+
+  resetAuto();
+});
+
+/* ── Order Form ── */
+const orderForm = document.getElementById('orderForm');
+const formCard  = document.getElementById('formCard');
+const formSuccess = document.getElementById('formSuccess');
+const formReset   = document.getElementById('formReset');
+
+if (orderForm) {
+  orderForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name    = (orderForm.elements.name.value || '').trim();
+    const service = orderForm.elements.service.value;
+    const budget  = (orderForm.elements.budget.value || '').trim();
+    const comment = (orderForm.elements.comment.value || '').trim();
+    if (!name || !service) {
+      orderForm.elements.name.focus();
+      return;
+    }
+    formCard.style.display = 'none';
+    formSuccess.classList.add('show');
+    // Store summary for VK message hint
+    const parts = [`Привет! Меня зовут ${name}.`, `Интересует: ${service}.`];
+    if (budget) parts.push(`Бюджет: ${budget}.`);
+    if (comment) parts.push(comment);
+    const _msg = parts.join(' ');
+  });
+  if (formReset) {
+    formReset.addEventListener('click', () => {
+      formSuccess.classList.remove('show');
+      formCard.style.display = '';
+      orderForm.reset();
+    });
+  }
+}
 </script>
 </body>
 </html>
