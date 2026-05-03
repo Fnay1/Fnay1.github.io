@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /dippc_v3_1.html
+
+Sitemap: https://dippc.ru/sitemap.xml
