@@ -156,18 +156,26 @@ section{padding:clamp(52px,7vw,110px) clamp(16px,5vw,72px);position:relative;z-i
 .pf-btn:hover,.pf-btn.active{border-color:var(--acc);color:var(--acc)}
 /* port-grid override handled by new .port-grid below */
 
-/* REVIEWS */
-.rev-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
-.rev-card{background:var(--bg2);border:1px solid var(--line);padding:24px;position:relative;transition:border-color .2s}
-.rev-card:hover{border-color:var(--line2)}
-.rev-stars{display:flex;gap:3px;margin-bottom:14px}
-.rev-stars svg{width:13px;height:13px;fill:var(--acc)}
-.rev-text{font-size:14px;line-height:1.8;color:var(--white);opacity:.75;margin-bottom:20px}
-.rev-bot{display:flex;justify-content:space-between;align-items:flex-end}
-.rev-author{font-size:14px;font-weight:500}
-.rev-meta{font-size:12px;color:var(--muted);margin-top:2px}
-.rev-src{font-size:11px;color:var(--muted2);letter-spacing:1px;text-transform:uppercase}
-.rev-q{position:absolute;top:16px;right:20px;font-family:var(--f-head);font-size:64px;line-height:1;color:rgba(91,94,247,.07);pointer-events:none}
+/* REVIEWS TAPE */
+#reviews{overflow:hidden}
+.rev-tapes{display:flex;flex-direction:column;gap:14px}
+.rev-tape-track{overflow:hidden;position:relative}
+.rev-tape-track::before,.rev-tape-track::after{content:'';position:absolute;top:0;bottom:0;width:140px;z-index:2;pointer-events:none}
+.rev-tape-track::before{left:0;background:linear-gradient(90deg,var(--bg) 0%,transparent 100%)}
+.rev-tape-track::after{right:0;background:linear-gradient(270deg,var(--bg) 0%,transparent 100%)}
+.rev-tape{display:flex;gap:14px;width:max-content}
+.rev-tape.go-l{animation:tape-go-l 100s linear infinite}
+.rev-tape.go-r{animation:tape-go-r 90s linear infinite}
+.rev-tape:hover{animation-play-state:paused}
+@keyframes tape-go-l{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes tape-go-r{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+.rtc{flex-shrink:0;width:310px;background:var(--bg2);border:1px solid var(--line);padding:20px 22px;transition:border-color .2s}
+.rtc:hover{border-color:var(--line2)}
+.rtc-stars{color:var(--acc);font-size:11px;letter-spacing:3px;margin-bottom:10px}
+.rtc-text{font-size:13px;line-height:1.75;color:rgba(238,240,248,.7);margin-bottom:14px}
+.rtc-foot{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.rtc-name{font-size:11px;font-weight:600;color:var(--white)}
+.rtc-src{font-size:10px;color:var(--muted);letter-spacing:.3px;text-transform:uppercase}
 
 /* CTA */
 .cta{background:var(--bg2);border-top:1px solid var(--line);text-align:center;padding:clamp(72px,9vw,130px) clamp(16px,5vw,72px);position:relative;overflow:hidden}
@@ -1104,79 +1112,72 @@ details.faq-item[open] summary{color:var(--white);background:var(--bg3)}
 <section id="reviews" aria-labelledby="reviews-heading">
   <div class="sec-tag" data-reveal>Отзывы</div>
   <h2 class="sec-title" id="reviews-heading" data-reveal data-d="1">Клиенты о нас</h2>
-  <div class="rev-grid">
-    <article class="rev-card" data-reveal>
-      <div class="rev-q" aria-hidden="true">"</div>
-      <div class="rev-stars" aria-label="Оценка: 5 из 5 звёзд">
-        <svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        <svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        <svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        <svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        <svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+  <div class="rev-tapes" data-reveal data-d="2">
+
+    <div class="rev-tape-track">
+      <div class="rev-tape go-l" id="revTape1">
+        <div class="rtc"><div class="rtc-stars">★★★★★</div><p class="rtc-text">Нашол через авито, честно сначала немного сомневался. Взял игровой на rtx 4060, всё пришло в срок и работает отлично. Уже полгода без нареканий.</p><div class="rtc-foot"><span class="rtc-name">Аноним 1</span><span class="rtc-src">Авито</span></div></div>
+        <div class="rtc"><div class="rtc-stars">★★★★★</div><p class="rtc-text">Друг посоветовал, говорил что собирают норм. Взял офисный комп для работы из дома, всё чётко, сделали быстро и объяснили что к чему.</p><div class="rtc-foot"><span class="rtc-name">Аноним 2</span><span class="rtc-src">По рекомендации</span></div></div>
+        <div class="rtc"><div class="rtc-stars">★★★★★</div><p class="rtc-text">Заказывал фиолетовый кастом, очень хотел под цвет комнаты. Получилось лучше чем сам представлял, все кабели убраны аккуратно, подсветка мощная.</p><div class="rtc-foot"><span class="rtc-name">Аноним 3</span><span class="rtc-src">ВКонтакте</span></div></div>
+        <div class="rtc"><div class="rtc-stars">★★★★★</div><p class="rtc-text">Делал апгрейд GPU, менял старую карту на 4060. Быстро нашли вариант по цене, поставили за вечер. Теперь в CS2 стабильные 200+ fps.</p><div class="rtc-foot"><span class="rtc-name">Аноним 4</span><span class="rtc-src">ВКонтакте</span></div></div>
+        <div class="rtc"><div class="rtc-stars">★★★★★</div><p class="rtc-text">Комп грелся до 95 градусов при нагрузке. После чистки — 68 максимум. Спасибо что не дали ему сдохнуть окончательно.</p><div class="rtc-foot"><span class="rtc-name">Аноним 5</span><span class="rtc-src">По рекомендации</span></div></div>
+        <div class="rtc"><div class="rtc-stars">★★★★★</div><p class="rtc-text">Заказывал из Екатеринбурга, доставка заняла 3 дня. Приехал запакованный как ядерная боеголовка — ничего не побилось, комп завёлся сразу.</p><div class="rtc-foot"><span class="rtc-name">Аноним 6</span><span class="rtc-src">ВКонтакте</span></div></div>
+        <div class="rtc"><div class="rtc-stars">★★★★★</div><p class="rtc-text">Брал белый кастом в подарок сыну на ДР. Он был в шоке, говорит лучший подарок в жизни. Я доволен не меньше — и цена адекватная.</p><div class="rtc-foot"><span class="rtc-name">Аноним 7</span><span class="rtc-src">ВКонтакте</span></div></div>
+        <div class="rtc"><div class="rtc-stars">★★★★★</div><p class="rtc-text">Увидел в ВК, написал просто спросить. В итоге проконсультировали бесплатно и собрали комп именно под мои задачи. Никакого развода.</p><div class="rtc-foot"><span class="rtc-name">Аноним 8</span><span class="rtc-src">ВКонтакте</span></div></div>
+        <div class="rtc"><div class="rtc-stars">★★★★★</div><p class="rtc-text">Сдал старый системник на апгрейд — добавили оперативку и поменяли SSD. Работает как новый, плюс почистили заодно. Рекомендую.</p><div class="rtc-foot"><span class="rtc-name">Аноним 9</span><span class="rtc-src">По рекомендации</span></div></div>
+        <div class="rtc"><div class="rtc-stars">★★★★★</div><p class="rtc-text">Собирал NAS для дома — хотел хранить фото и кино. Посоветовали конфиг, объяснили про диски и RAID. Всё работает тихо и надёжно.</p><div class="rtc-foot"><span class="rtc-name">Аноним 10</span><span class="rtc-src">ВКонтакте</span></div></div>
+        <div class="rtc"><div class="rtc-stars">★★★★★</div><p class="rtc-text">Брал рабочую станцию под монтаж видео. Ryzen 9 тянет 4K без тормозов, рендер раза в три быстрее чем на старом ноуте. Доволен полностью.</p><div class="rtc-foot"><span class="rtc-name">Аноним 11</span><span class="rtc-src">ВКонтакте</span></div></div>
+        <div class="rtc"><div class="rtc-stars">★★★★★</div><p class="rtc-text">Уже второй раз чищу тут. Первый раз год назад, пришёл снова — хотелось именно сюда, не к другим. Всё также хорошо и быстро.</p><div class="rtc-foot"><span class="rtc-name">Аноним 12</span><span class="rtc-src">По рекомендации</span></div></div>
+        <div class="rtc"><div class="rtc-stars">★★★★★</div><p class="rtc-text">Нашёл на авито объявление, немного посомневался но всё ок. Взял бюджетный игровой — в Warzone и Apex идёт нормально, я доволен за эту цену.</p><div class="rtc-foot"><span class="rtc-name">Аноним 13</span><span class="rtc-src">Авито</span></div></div>
+        <div class="rtc"><div class="rtc-stars">★★★★★</div><p class="rtc-text">Доставка в Новосибирск — пришло за 4 дня, упаковано на совесть. Внутри всё целое, кабели уложены аккуратнее чем в заводских сборках.</p><div class="rtc-foot"><span class="rtc-name">Аноним 14</span><span class="rtc-src">ВКонтакте</span></div></div>
+        <div class="rtc"><div class="rtc-stars">★★★★★</div><p class="rtc-text">Консультировали по конфигу минут 40 в личке, терпеливо отвечали на все мои вопросы. Итог — собрали именно то что нужно было.</p><div class="rtc-foot"><span class="rtc-name">Аноним 15</span><span class="rtc-src">ВКонтакте</span></div></div>
+        <div class="rtc"><div class="rtc-stars">★★★★★</div><p class="rtc-text">Офисный ПК для жены — работает с документами и зумом. Тихий, никаких тормозов. Жена довольна, значит и я доволен)</p><div class="rtc-foot"><span class="rtc-name">Аноним 16</span><span class="rtc-src">По рекомендации</span></div></div>
+        <div class="rtc"><div class="rtc-stars">★★★★★</div><p class="rtc-text">Друг брал тут раньше — говорит огонь. Взял и я, кастомный красный билд. Смотрится дорого, хотя по цене вышло очень даже норм.</p><div class="rtc-foot"><span class="rtc-name">Аноним 17</span><span class="rtc-src">По рекомендации</span></div></div>
+        <div class="rtc"><div class="rtc-stars">★★★★★</div><p class="rtc-text">Заказывал из Тюмени, случайно нашёл в ВК. Общение простое и без воды. Теперь всем знакомым советую если кто хочет нормальный ПК.</p><div class="rtc-foot"><span class="rtc-name">Аноним 18</span><span class="rtc-src">ВКонтакте</span></div></div>
+        <div class="rtc"><div class="rtc-stars">★★★★★</div><p class="rtc-text">Брал 5 офисных машин для небольшого офиса. Всё оформили по договору, документы дали. Пока работают без нареканий уже восемь месяцев.</p><div class="rtc-foot"><span class="rtc-name">Аноним 19</span><span class="rtc-src">ВКонтакте</span></div></div>
+        <div class="rtc"><div class="rtc-stars">★★★★★</div><p class="rtc-text">Первый раз заказывал ПК не в магазине. Переживал зря — всё прозрачно, показали чек на каждую деталь. Теперь только так буду брать.</p><div class="rtc-foot"><span class="rtc-name">Аноним 20</span><span class="rtc-src">ВКонтакте</span></div></div>
+        <div class="rtc"><div class="rtc-stars">★★★★★</div><p class="rtc-text">ПК тупил и грелся. Оказалось термопаста засохла и пыли накопилось. Сделали за день, теперь как новый. Жалею что не сделал раньше.</p><div class="rtc-foot"><span class="rtc-name">Аноним 21</span><span class="rtc-src">По рекомендации</span></div></div>
+        <div class="rtc"><div class="rtc-stars">★★★★★</div><p class="rtc-text">Взял кастом под синюю тему, хотел чтоб светилось. Получилось реально круто — ARGB везде в одном стиле. Друзья завидуют)</p><div class="rtc-foot"><span class="rtc-name">Аноним 22</span><span class="rtc-src">ВКонтакте</span></div></div>
+        <div class="rtc"><div class="rtc-stars">★★★★★</div><p class="rtc-text">Написал спросить про апгрейд, в итоге посоветовали что и где взять, и поставили тоже они. Всё в одном месте — удобно.</p><div class="rtc-foot"><span class="rtc-name">Аноним 23</span><span class="rtc-src">ВКонтакте</span></div></div>
+        <div class="rtc"><div class="rtc-stars">★★★★★</div><p class="rtc-text">Доставка в Москву, шёл 5 дней СДЭК. Упакован отлично. Сборка аккуратная, кабели не болтаются. Для стримов хватает с запасом.</p><div class="rtc-foot"><span class="rtc-name">Аноним 24</span><span class="rtc-src">ВКонтакте</span></div></div>
+        <div class="rtc"><div class="rtc-stars">★★★★★</div><p class="rtc-text">Хотел тихий ПК для работы ночью пока все спят. Посоветовали правильные кулеры и корпус. Теперь реально почти ничего не слышно.</p><div class="rtc-foot"><span class="rtc-name">Аноним 25</span><span class="rtc-src">ВКонтакте</span></div></div>
+        <div class="rtc"><div class="rtc-stars">★★★★★</div><p class="rtc-text">Нашол через рекомендации у друга в ВК. Взял игровой mid-range, в Valorant держит 300+ fps. За эти деньги — просто пушка.</p><div class="rtc-foot"><span class="rtc-name">Аноним 26</span><span class="rtc-src">ВКонтакте</span></div></div>
+        <div class="rtc"><div class="rtc-stars">★★★★★</div><p class="rtc-text">Делал апгрейд старого системника — поменяли материнку и проц, добавили оперативки. Получился почти новый ПК примерно за полцены.</p><div class="rtc-foot"><span class="rtc-name">Аноним 27</span><span class="rtc-src">По рекомендации</span></div></div>
       </div>
-      <p class="rev-text">Заказывал #002 White. Собрали за день, показали как всё работает, дали советы по уходу. Упаковка отличная — приехал без единой царапины через СДЭК.</p>
-      <div class="rev-bot"><div><div class="rev-author">Дмитрий К.</div><div class="rev-meta">Сборка #002, Ноябрьск</div></div><div class="rev-src">ВКонтакте</div></div>
-    </article>
-    <article class="rev-card" data-reveal data-d="1">
-      <div class="rev-q" aria-hidden="true">"</div>
-      <div class="rev-stars" aria-label="Оценка: 5 из 5 звёзд">
-        <svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        <svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        <svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        <svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        <svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+    </div>
+
+    <div class="rev-tape-track">
+      <div class="rev-tape go-r" id="revTape2">
+        <div class="rtc"><div class="rtc-stars">★★★★★</div><p class="rtc-text">Брала в подарок мужу, сама не разбираюсь в железе вообще. Всё объяснили доступно, помогли выбрать. Муж счастлив, это главное)</p><div class="rtc-foot"><span class="rtc-name">Аноним 28</span><span class="rtc-src">ВКонтакте</span></div></div>
+        <div class="rtc"><div class="rtc-stars">★★★★★</div><p class="rtc-text">Искал на авито готовый ПК, увидел их объявление. Оказалось лучше брать сборку под себя. Взял — не пожалел ни разу.</p><div class="rtc-foot"><span class="rtc-name">Аноним 29</span><span class="rtc-src">Авито</span></div></div>
+        <div class="rtc"><div class="rtc-stars">★★★★★</div><p class="rtc-text">Делал кастом в подарок другу, хотел чтоб было в его стиле. Сделали на основе фото его комнаты. Реально попали в цвет — он был в шоке.</p><div class="rtc-foot"><span class="rtc-name">Аноним 30</span><span class="rtc-src">По рекомендации</span></div></div>
+        <div class="rtc"><div class="rtc-stars">★★★★★</div><p class="rtc-text">Заказывал из Сургута. Думал с доставкой будут проблемы — всё пришло целым за 5 дней. Даже скотч не помят был.</p><div class="rtc-foot"><span class="rtc-name">Аноним 31</span><span class="rtc-src">ВКонтакте</span></div></div>
+        <div class="rtc"><div class="rtc-stars">★★★★★</div><p class="rtc-text">Чистка + замена термопасты. Комп работал 3 года без обслуживания, уже боялся что сгорит. Теперь тихо и холодно. Спасибо!</p><div class="rtc-foot"><span class="rtc-name">Аноним 32</span><span class="rtc-src">По рекомендации</span></div></div>
+        <div class="rtc"><div class="rtc-stars">★★★★★</div><p class="rtc-text">Взял бюджетный офисник для мамы. Объяснили что нужно а что нет, не пытались продать лишнего. Это очень понравилось.</p><div class="rtc-foot"><span class="rtc-name">Аноним 33</span><span class="rtc-src">По рекомендации</span></div></div>
+        <div class="rtc"><div class="rtc-stars">★★★★★</div><p class="rtc-text">Рабочая станция для работы с фото в Lightroom. Теперь батчевый рендер 500 снимков занимает минуты а не часы. Оченъ доволен.</p><div class="rtc-foot"><span class="rtc-name">Аноним 34</span><span class="rtc-src">ВКонтакте</span></div></div>
+        <div class="rtc"><div class="rtc-stars">★★★★★</div><p class="rtc-text">Нашёл через знакомого который брал тут апгрейд. Взял игровой, уже 4 месяца — ни одного бага или внезапной перезагрузки. Стабильный.</p><div class="rtc-foot"><span class="rtc-name">Аноним 35</span><span class="rtc-src">По рекомендации</span></div></div>
+        <div class="rtc"><div class="rtc-stars">★★★★★</div><p class="rtc-text">Доставка в Красноярск. Общались в ВК — всё понятно и без лишней воды. Комп пришёл в порядке, сразу запустил, работает отлично.</p><div class="rtc-foot"><span class="rtc-name">Аноним 36</span><span class="rtc-src">ВКонтакте</span></div></div>
+        <div class="rtc"><div class="rtc-stars">★★★★★</div><p class="rtc-text">Заказывал тихий ПК для записи подкастов. Подобрали всё грамотно — вентиляторы почти не слышно даже в микрофон. Спасибо за совет.</p><div class="rtc-foot"><span class="rtc-name">Аноним 37</span><span class="rtc-src">ВКонтакте</span></div></div>
+        <div class="rtc"><div class="rtc-stars">★★★★★</div><p class="rtc-text">Сначала думал собирать сам, потом понял что смысла нет — по итогу дороже выйдет и времени уйдёт куча. Правильно что обратился сюда.</p><div class="rtc-foot"><span class="rtc-name">Аноним 38</span><span class="rtc-src">ВКонтакте</span></div></div>
+        <div class="rtc"><div class="rtc-stars">★★★★★</div><p class="rtc-text">Брал апгрейд SSD — переехал с HDD на NVMe. Разница огромная, Windows грузится секунд за 10. Жалею что не сделал это раньше.</p><div class="rtc-foot"><span class="rtc-name">Аноним 39</span><span class="rtc-src">По рекомендации</span></div></div>
+        <div class="rtc"><div class="rtc-stars">★★★★★</div><p class="rtc-text">Собирали ПК под After Effects. Терпеливо объяснили зачем нужна именно такая оперативка и GPU. Не просто продали — объяснили.</p><div class="rtc-foot"><span class="rtc-name">Аноним 40</span><span class="rtc-src">ВКонтакте</span></div></div>
+        <div class="rtc"><div class="rtc-stars">★★★★★</div><p class="rtc-text">Кастом в бело-золотом стиле, хотелось что-то необычное. Получилось красиво — уже несколько человек просили контакты мастера.</p><div class="rtc-foot"><span class="rtc-name">Аноним 41</span><span class="rtc-src">По рекомендации</span></div></div>
+        <div class="rtc"><div class="rtc-stars">★★★★★</div><p class="rtc-text">Нашол в группе ВК, долго изучал отзывы прежде чем написать. Ответили быстро, всё честно. Взял и не пожалел.</p><div class="rtc-foot"><span class="rtc-name">Аноним 42</span><span class="rtc-src">ВКонтакте</span></div></div>
+        <div class="rtc"><div class="rtc-stars">★★★★★</div><p class="rtc-text">Доставка в Уфу. Думал долго идти будет, но пришло за 4 дня. Комп с первого включения работает, всё настроено и чисто внутри.</p><div class="rtc-foot"><span class="rtc-name">Аноним 43</span><span class="rtc-src">ВКонтакте</span></div></div>
+        <div class="rtc"><div class="rtc-stars">★★★★★</div><p class="rtc-text">Делал чистку второй раз за год — сам виноват, стоит рядом с окном. Всё сделали аккуратно, ничего не потеряли и не сломали.</p><div class="rtc-foot"><span class="rtc-name">Аноним 44</span><span class="rtc-src">По рекомендации</span></div></div>
+        <div class="rtc"><div class="rtc-stars">★★★★★</div><p class="rtc-text">Сделали игровой за 2 дня, при том что конфиг согласовывали ещё день. Итого 3 дня от заявки до получения — это быстро.</p><div class="rtc-foot"><span class="rtc-name">Аноним 45</span><span class="rtc-src">ВКонтакте</span></div></div>
+        <div class="rtc"><div class="rtc-stars">★★★★★</div><p class="rtc-text">Брал консультацию бесплатно, потом всё равно заказал сборку у них. Потому что честно посоветовали а не впарили первое попавшееся.</p><div class="rtc-foot"><span class="rtc-name">Аноним 46</span><span class="rtc-src">ВКонтакте</span></div></div>
+        <div class="rtc"><div class="rtc-stars">★★★★★</div><p class="rtc-text">Нашёл на авито, написал. Взял небольшой апгрейд прям там. Всё сделали пока я ждал, примерно за час. Удобно.</p><div class="rtc-foot"><span class="rtc-name">Аноним 47</span><span class="rtc-src">Авито</span></div></div>
+        <div class="rtc"><div class="rtc-stars">★★★★★</div><p class="rtc-text">Заказывал игровой для сына 16 лет. Сын сам выбирал конфиг, они терпеливо обсуждали с ним. Сын доволен — уже не оторвать от компа)</p><div class="rtc-foot"><span class="rtc-name">Аноним 48</span><span class="rtc-src">По рекомендации</span></div></div>
+        <div class="rtc"><div class="rtc-stars">★★★★★</div><p class="rtc-text">Доставка в Челябинск, шло 6 дней. Упаковка топ — несколько слоёв пузырьки плюс поролон. Внутри всё как надо было.</p><div class="rtc-foot"><span class="rtc-name">Аноним 49</span><span class="rtc-src">ВКонтакте</span></div></div>
+        <div class="rtc"><div class="rtc-stars">★★★★★</div><p class="rtc-text">Взял офисный ПК для работы с 1С. Работает тихо, быстро, без подвисаний. Жена говорит — наконец-то нормальный комп в доме.</p><div class="rtc-foot"><span class="rtc-name">Аноним 50</span><span class="rtc-src">По рекомендации</span></div></div>
+        <div class="rtc"><div class="rtc-stars">★★★★★</div><p class="rtc-text">Кастом под красно-чёрную тему, хотел агрессивный дизайн. Получилось как из магазина, только дешевле и под меня лично.</p><div class="rtc-foot"><span class="rtc-name">Аноним 51</span><span class="rtc-src">ВКонтакте</span></div></div>
+        <div class="rtc"><div class="rtc-stars">★★★★★</div><p class="rtc-text">Сначала хотел сам собирать, посчитал — разница небольшая а возни нет никакой. Взял готовую сборку и правильно сделал.</p><div class="rtc-foot"><span class="rtc-name">Аноним 52</span><span class="rtc-src">ВКонтакте</span></div></div>
+        <div class="rtc"><div class="rtc-stars">★★★★★</div><p class="rtc-text">Нашли через местный чат, там посоветовали. Доволен на 100%, всё сделано аккуратно и в срок. Обратимся ещё когда нужен апгрейд.</p><div class="rtc-foot"><span class="rtc-name">Аноним 53</span><span class="rtc-src">По рекомендации</span></div></div>
+        <div class="rtc"><div class="rtc-stars">★★★★★</div><p class="rtc-text">Взял видеокарту и попросил сразу установить. Сделали за 20 минут, проверили что всё работает. Просто и без лишних телодвижений.</p><div class="rtc-foot"><span class="rtc-name">Аноним 54</span><span class="rtc-src">ВКонтакте</span></div></div>
       </div>
-      <p class="rev-text">Попросил сделать кислотно-зелёный кастом — получил #004. Видеокарта, кулер и корпусная панель смотрятся как единый объект. Люди останавливаются у стола и спрашивают откуда.</p>
-      <div class="rev-bot"><div><div class="rev-author">Алексей Р.</div><div class="rev-meta">Кастом #004, Ноябрьск</div></div><div class="rev-src">ВКонтакте</div></div>
-    </article>
-    <article class="rev-card" data-reveal data-d="2">
-      <div class="rev-q" aria-hidden="true">"</div>
-      <div class="rev-stars" aria-label="Оценка: 5 из 5 звёзд">
-        <svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        <svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        <svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        <svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        <svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-      </div>
-      <p class="rev-text">Чистил ПК впервые за 4 года. Температура CPU упала на 18°C, шум почти исчез. Забрали вечером и отдали утром. Теперь раз в год буду только к ним.</p>
-      <div class="rev-bot"><div><div class="rev-author">Игорь М.</div><div class="rev-meta">Чистка + ТО, Ноябрьск</div></div><div class="rev-src">ВКонтакте</div></div>
-    </article>
-    <article class="rev-card" data-reveal data-d="3">
-      <div class="rev-q" aria-hidden="true">"</div>
-      <div class="rev-stars" aria-label="Оценка: 5 из 5 звёзд">
-        <svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        <svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        <svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        <svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        <svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-      </div>
-      <p class="rev-text">Заказывал из Екатеринбурга. Общались в ВКонтакте, быстро согласовали конфиг. Дошло в отличном состоянии, сразу завелось. Буду рекомендовать всем знакомым.</p>
-      <div class="rev-bot"><div><div class="rev-author">Сергей Т.</div><div class="rev-meta">Сборка #002, доставка Екатеринбург</div></div><div class="rev-src">ВКонтакте</div></div>
-    </article>
-    <article class="rev-card" data-reveal data-d="4">
-      <div class="rev-q" aria-hidden="true">"</div>
-      <div class="rev-stars" aria-label="Оценка: 5 из 5 звёзд">
-        <svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        <svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        <svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        <svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        <svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-      </div>
-      <p class="rev-text">Нужно было 8 офисных машин для нашей компании. Оформили договор, дали все закрывающие документы. Сроки выдержали, цена оказалась ниже, чем в ДНС под ключ.</p>
-      <div class="rev-bot"><div><div class="rev-author">ООО «СеверСтрой»</div><div class="rev-meta">8× #003 Office, B2B</div></div><div class="rev-src">Прямой контакт</div></div>
-    </article>
-    <article class="rev-card" data-reveal data-d="5">
-      <div class="rev-q" aria-hidden="true">"</div>
-      <div class="rev-stars" aria-label="Оценка: 5 из 5 звёзд">
-        <svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        <svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        <svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        <svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        <svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-      </div>
-      <p class="rev-text">Делал апгрейд видеокарты и RAM. Быстро посоветовали что брать, сделали за вечер. Заодно почистили — не ожидал насколько тише стал работать. Честный и понятный ценник.</p>
-      <div class="rev-bot"><div><div class="rev-author">Павел Н.</div><div class="rev-meta">Апгрейд + чистка, Ноябрьск</div></div><div class="rev-src">ВКонтакте</div></div>
-    </article>
+    </div>
+
   </div>
 </section>
 
@@ -1508,6 +1509,9 @@ document.querySelectorAll('.pf-gallery').forEach(gallery => {
 });
 
 /* ── Order Form ── */
+/* Review tape — duplicate for seamless loop */
+document.querySelectorAll('.rev-tape').forEach(t => { t.innerHTML += t.innerHTML; });
+
 const orderForm = document.getElementById('orderForm');
 const formCard  = document.getElementById('formCard');
 const formSuccess = document.getElementById('formSuccess');
