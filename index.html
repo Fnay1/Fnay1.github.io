@@ -467,17 +467,17 @@ details.faq-item[open] summary{color:var(--white);background:var(--bg3)}
 }
 
 /* SECTION PHOTO BACKGROUNDS */
-.sec-pbg{position:absolute;top:0;bottom:0;overflow:hidden;pointer-events:none;z-index:0}
-.sec-pbg img{width:100%;height:100%;object-fit:cover;object-position:center;opacity:.15;filter:saturate(.38) brightness(.48);display:block}
-.sec-pbg::after{content:'';position:absolute;inset:0}
-.sec-pbg.sp-r{right:0;width:42%}
-.sec-pbg.sp-r::after{background:linear-gradient(90deg,var(--sp-bg,var(--bg)) 0%,transparent 55%),linear-gradient(180deg,var(--sp-bg,var(--bg)) 0%,transparent 22%),linear-gradient(0deg,var(--sp-bg,var(--bg)) 0%,transparent 22%)}
-.sec-pbg.sp-l{left:0;width:42%}
-.sec-pbg.sp-l::after{background:linear-gradient(270deg,var(--sp-bg,var(--bg)) 0%,transparent 55%),linear-gradient(180deg,var(--sp-bg,var(--bg)) 0%,transparent 22%),linear-gradient(0deg,var(--sp-bg,var(--bg)) 0%,transparent 22%)}
+.sec-pbg{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+.sec-pbg img{width:100%;height:100%;object-fit:cover;object-position:center;opacity:.14;filter:saturate(.3) brightness(.44);display:block}
+.sec-pbg::after{content:'';position:absolute;inset:0;background:
+  linear-gradient(180deg,var(--sp-bg,var(--bg)) 0%,transparent 30%),
+  linear-gradient(0deg,var(--sp-bg,var(--bg)) 0%,transparent 30%),
+  linear-gradient(90deg,var(--sp-bg,var(--bg)) 0%,transparent 16%),
+  linear-gradient(270deg,var(--sp-bg,var(--bg)) 0%,transparent 16%)}
 .how>.sec-pbg~*,.why>.sec-pbg~*,.services>.sec-pbg~*{position:relative;z-index:1}
-.cta-inner{position:relative;z-index:1}
+.cta-inner,.cta-bg{position:relative;z-index:1}
 .how,.why,.services{overflow:hidden}
-@media(max-width:900px){.sec-pbg{display:none}}
+@media(max-width:768px){.sec-pbg img{opacity:.07}}
 </style>
 
 <script type="application/ld+json">
@@ -632,7 +632,7 @@ details.faq-item[open] summary{color:var(--white);background:var(--bg3)}
 </section>
 
 <section class="how" id="how" aria-labelledby="how-heading">
-  <div class="sec-pbg sp-r" style="--sp-bg:var(--bg2)" aria-hidden="true"><img src="images/4/1.jpg" alt="" loading="lazy"></div>
+  <div class="sec-pbg" style="--sp-bg:var(--bg2)" aria-hidden="true"><img src="images/4/1.jpg" alt="" loading="lazy"></div>
   <div class="sec-tag">Процесс</div>
   <h2 class="sec-title" id="how-heading">Как заказать</h2>
   <div class="how-grid">
@@ -664,7 +664,7 @@ details.faq-item[open] summary{color:var(--white);background:var(--bg3)}
 </section>
 
 <section class="why" id="why" aria-labelledby="why-heading">
-  <div class="sec-pbg sp-l" aria-hidden="true"><img src="images/5/1.jpg" alt="" loading="lazy"></div>
+  <div class="sec-pbg" aria-hidden="true"><img src="images/5/1.jpg" alt="" loading="lazy"></div>
   <div class="sec-tag">Наши преимущества</div>
   <h2 class="sec-title" id="why-heading" data-reveal>Почему выбирают нас</h2>
   <div class="why-grid">
@@ -696,7 +696,7 @@ details.faq-item[open] summary{color:var(--white);background:var(--bg3)}
 </section>
 
 <section class="services" id="services" aria-labelledby="services-heading">
-  <div class="sec-pbg sp-r" aria-hidden="true"><img src="images/3/1.jpg" alt="" loading="lazy"></div>
+  <div class="sec-pbg" aria-hidden="true"><img src="images/3/1.jpg" alt="" loading="lazy"></div>
   <div class="sec-tag" data-reveal>Что мы делаем</div>
   <h2 class="sec-title" id="services-heading" data-reveal data-d="1">Услуги</h2>
   <div class="srv-grid">
@@ -1038,7 +1038,7 @@ details.faq-item[open] summary{color:var(--white);background:var(--bg3)}
 </section>
 
 <section class="cta" id="contact" aria-labelledby="cta-heading">
-  <div class="sec-pbg sp-l" style="--sp-bg:var(--bg2)" aria-hidden="true"><img src="images/7/1.jpg" alt="" loading="lazy"></div>
+  <div class="sec-pbg" style="--sp-bg:var(--bg2)" aria-hidden="true"><img src="images/7/1.jpg" alt="" loading="lazy"></div>
   <div class="cta-bg" aria-hidden="true"></div>
   <div class="cta-inner">
     <!-- Левая колонка -->
