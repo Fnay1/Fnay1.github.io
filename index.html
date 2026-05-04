@@ -466,6 +466,32 @@ details.faq-item[open] summary{color:var(--white);background:var(--bg3)}
   .lb-bar{padding:8px 12px}
 }
 
+/* BUILDS / PACKAGES */
+.builds-sub{font-size:15px;color:var(--muted);max-width:520px;margin-top:-28px;margin-bottom:48px;line-height:1.7}
+.builds-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.build-card{background:var(--bg2);padding:36px 28px;display:flex;flex-direction:column;transition:background .25s;position:relative;overflow:hidden}
+.build-card:hover{background:var(--bg3)}
+.build-card.build-hot{background:var(--bg3)}
+.build-hot-badge{position:absolute;top:22px;right:-30px;font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;background:var(--acc);color:#fff;padding:5px 40px;transform:rotate(45deg);pointer-events:none}
+.build-ico{width:44px;height:44px;background:rgba(91,94,247,.07);border:1px solid rgba(91,94,247,.18);display:flex;align-items:center;justify-content:center;margin-bottom:20px;flex-shrink:0}
+.build-ico svg{width:20px;height:20px;stroke:var(--acc);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.build-name{font-family:var(--f-head);font-size:34px;letter-spacing:.5px;line-height:1;margin-bottom:6px}
+.build-for{font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--acc);margin-bottom:12px}
+.build-desc{font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:22px}
+.build-specs{list-style:none;border-top:1px solid var(--line);padding-top:18px;margin-bottom:24px}
+.build-specs li{display:grid;grid-template-columns:46px 1fr;gap:10px;padding:7px 0;border-bottom:1px solid var(--line);font-size:13px}
+.build-specs li:last-child{border-bottom:none}
+.bs-key{font-family:var(--f-head);font-size:10px;letter-spacing:1.5px;color:var(--muted);text-transform:uppercase;line-height:1.6;align-self:start;padding-top:1px}
+.bs-val{color:var(--white);line-height:1.6}
+.build-price{font-family:var(--f-head);font-size:40px;line-height:1;color:var(--acc);margin-top:auto;margin-bottom:4px}
+.build-price-note{font-size:11px;color:var(--muted);margin-bottom:18px;letter-spacing:.2px}
+.build-cta-btn{display:flex;align-items:center;justify-content:center;padding:13px;border:1px solid var(--line2);color:var(--muted);font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;text-decoration:none;transition:all .2s;font-family:var(--f-body)}
+.build-card:hover .build-cta-btn{border-color:var(--acc);color:var(--acc)}
+.build-hot .build-cta-btn{background:var(--acc);color:#fff;border-color:var(--acc)}
+.build-hot .build-cta-btn:hover{background:var(--acc2);border-color:var(--acc2)}
+@media(max-width:1100px){.builds-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.builds-grid{grid-template-columns:1fr}}
+
 /* SECTION PHOTO BACKGROUNDS */
 .sec-pbg{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none}
 .sec-pbg img{width:100%;height:100%;object-fit:cover;object-position:center;opacity:.14;filter:saturate(.3) brightness(.44);display:block}
@@ -476,7 +502,8 @@ details.faq-item[open] summary{color:var(--white);background:var(--bg3)}
   linear-gradient(270deg,var(--sp-bg,var(--bg)) 0%,transparent 16%)}
 .how>.sec-pbg~*,.why>.sec-pbg~*,.services>.sec-pbg~*{position:relative;z-index:1}
 .cta-inner,.cta-bg{position:relative;z-index:1}
-.how,.why,.services{overflow:hidden}
+.how,.why,.services,#builds{overflow:hidden}
+#builds>.sec-pbg~*{position:relative;z-index:1}
 @media(max-width:768px){.sec-pbg img{opacity:.07}}
 </style>
 
@@ -513,6 +540,7 @@ details.faq-item[open] summary{color:var(--white);background:var(--bg3)}
   <div class="nav-r">
     <ul class="nav-links">
       <li><a href="#services">Услуги</a></li>
+      <li><a href="#builds">Пакеты</a></li>
       <li><a href="#portfolio">Работы</a></li>
       <li><a href="#reviews">Отзывы</a></li>
       <li><a href="#faq">FAQ</a></li>
@@ -525,6 +553,7 @@ details.faq-item[open] summary{color:var(--white);background:var(--bg3)}
 </nav>
 <div class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Мобильное меню">
   <a href="#services" onclick="document.getElementById('mobileMenu').classList.remove('open')">Услуги</a>
+  <a href="#builds" onclick="document.getElementById('mobileMenu').classList.remove('open')">Пакеты</a>
   <a href="#portfolio" onclick="document.getElementById('mobileMenu').classList.remove('open')">Работы</a>
   <a href="#reviews" onclick="document.getElementById('mobileMenu').classList.remove('open')">Отзывы</a>
   <a href="#faq" onclick="document.getElementById('mobileMenu').classList.remove('open')">FAQ</a>
@@ -736,6 +765,93 @@ details.faq-item[open] summary{color:var(--white);background:var(--bg3)}
       <p class="srv-desc">Обслуживание и сборка ПК для организаций. Работаем по договору, закрывающие документы.</p>
       <div class="srv-price">По запросу</div>
     </div>
+  </div>
+</section>
+
+<section id="builds" aria-labelledby="builds-heading">
+  <div class="sec-pbg" aria-hidden="true"><img src="images/2/1.jpg" alt="" loading="lazy"></div>
+  <div class="sec-tag" data-reveal>Готовые решения</div>
+  <h2 class="sec-title" id="builds-heading" data-reveal data-d="1">Пакеты <span class="acc-text">сборок</span></h2>
+  <p class="builds-sub" data-reveal data-d="2">Базовые конфигурации — берём за основу и подгоняем под ваш бюджет и задачи. Цена указана с комплектующими и сборкой.</p>
+  <div class="builds-grid">
+
+    <!-- Офисный -->
+    <article class="build-card" data-reveal data-d="1">
+      <div class="build-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+      <div class="build-name">Office</div>
+      <div class="build-for">Офисный</div>
+      <p class="build-desc">Работа, учёба, документы, браузер — тихий и компактный ПК без лишних трат.</p>
+      <ul class="build-specs">
+        <li><span class="bs-key">CPU</span><span class="bs-val">Intel Core i3-12100</span></li>
+        <li><span class="bs-key">RAM</span><span class="bs-val">16 ГБ DDR4-3200</span></li>
+        <li><span class="bs-key">SSD</span><span class="bs-val">256 ГБ NVMe</span></li>
+        <li><span class="bs-key">GPU</span><span class="bs-val">Intel UHD 730 (встр.)</span></li>
+        <li><span class="bs-key">Корпус</span><span class="bs-val">Компактный mATX</span></li>
+        <li><span class="bs-key">БП</span><span class="bs-val">400 Вт 80+ Bronze</span></li>
+      </ul>
+      <div class="build-price">от 38 000 ₽</div>
+      <div class="build-price-note">комплектующие + сборка</div>
+      <a href="https://vk.com/dippc" target="_blank" rel="noopener noreferrer" class="build-cta-btn">Заказать</a>
+    </article>
+
+    <!-- Игровой -->
+    <article class="build-card build-hot" data-reveal data-d="2">
+      <div class="build-hot-badge">Хит</div>
+      <div class="build-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+      <div class="build-name">Gaming</div>
+      <div class="build-for">Игровой</div>
+      <p class="build-desc">1080p / 1440p на ультра-настройках. Тянет любые современные игры с запасом.</p>
+      <ul class="build-specs">
+        <li><span class="bs-key">CPU</span><span class="bs-val">AMD Ryzen 5 5600X</span></li>
+        <li><span class="bs-key">RAM</span><span class="bs-val">32 ГБ DDR4-3600</span></li>
+        <li><span class="bs-key">SSD</span><span class="bs-val">1 ТБ NVMe</span></li>
+        <li><span class="bs-key">GPU</span><span class="bs-val">NVIDIA RTX 4060 8 ГБ</span></li>
+        <li><span class="bs-key">Охл.</span><span class="bs-val">Башенный кулер 120 мм</span></li>
+        <li><span class="bs-key">БП</span><span class="bs-val">650 Вт 80+ Gold</span></li>
+      </ul>
+      <div class="build-price">от 105 000 ₽</div>
+      <div class="build-price-note">комплектующие + сборка</div>
+      <a href="https://vk.com/dippc" target="_blank" rel="noopener noreferrer" class="build-cta-btn">Заказать</a>
+    </article>
+
+    <!-- Рендер / Видео -->
+    <article class="build-card" data-reveal data-d="3">
+      <div class="build-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 10l4.553-2.069A1 1 0 0121 8.87V15.13a1 1 0 01-1.447.899L15 14M3 8a1 1 0 011-1h10a1 1 0 011 1v8a1 1 0 01-1 1H4a1 1 0 01-1-1V8z"/></svg></div>
+      <div class="build-name">Creator</div>
+      <div class="build-for">Рендер / Видео</div>
+      <p class="build-desc">3D-рендер, видеомонтаж, After Effects, DaVinci — максимальная производительность.</p>
+      <ul class="build-specs">
+        <li><span class="bs-key">CPU</span><span class="bs-val">AMD Ryzen 9 7900X</span></li>
+        <li><span class="bs-key">RAM</span><span class="bs-val">64 ГБ DDR5-5200</span></li>
+        <li><span class="bs-key">SSD</span><span class="bs-val">2 ТБ NVMe Gen4</span></li>
+        <li><span class="bs-key">GPU</span><span class="bs-val">NVIDIA RTX 4090 24 ГБ</span></li>
+        <li><span class="bs-key">Охл.</span><span class="bs-val">СЖО 360 мм</span></li>
+        <li><span class="bs-key">БП</span><span class="bs-val">1000 Вт 80+ Platinum</span></li>
+      </ul>
+      <div class="build-price">от 290 000 ₽</div>
+      <div class="build-price-note">комплектующие + сборка</div>
+      <a href="https://vk.com/dippc" target="_blank" rel="noopener noreferrer" class="build-cta-btn">Заказать</a>
+    </article>
+
+    <!-- Сервер -->
+    <article class="build-card" data-reveal data-d="4">
+      <div class="build-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg></div>
+      <div class="build-name">Server</div>
+      <div class="build-for">Сервер / NAS</div>
+      <p class="build-desc">Файловый сервер, NAS, 1С, умный дом — надёжное хранение и круглосуточная работа.</p>
+      <ul class="build-specs">
+        <li><span class="bs-key">CPU</span><span class="bs-val">Intel Xeon E-2324G</span></li>
+        <li><span class="bs-key">RAM</span><span class="bs-val">64 ГБ ECC DDR4</span></li>
+        <li><span class="bs-key">SSD</span><span class="bs-val">2 × 1 ТБ NVMe (RAID 1)</span></li>
+        <li><span class="bs-key">HDD</span><span class="bs-val">4 × 4 ТБ SATA</span></li>
+        <li><span class="bs-key">Сеть</span><span class="bs-val">2 × 1 GbE LAN</span></li>
+        <li><span class="bs-key">БП</span><span class="bs-val">750 Вт 80+ Gold</span></li>
+      </ul>
+      <div class="build-price">от 185 000 ₽</div>
+      <div class="build-price-note">комплектующие + сборка</div>
+      <a href="https://vk.com/dippc" target="_blank" rel="noopener noreferrer" class="build-cta-btn">Заказать</a>
+    </article>
+
   </div>
 </section>
 
@@ -1119,6 +1235,7 @@ details.faq-item[open] summary{color:var(--white);background:var(--bg3)}
     <div class="foot-logo">Dip<span>PC</span></div>
     <nav class="foot-nav" aria-label="Быстрые ссылки">
       <a href="#services">Услуги</a>
+      <a href="#builds">Пакеты</a>
       <a href="#portfolio">Работы</a>
       <a href="#reviews">Отзывы</a>
       <a href="#faq">FAQ</a>
